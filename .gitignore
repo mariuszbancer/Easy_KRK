@@ -145,3 +145,6 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# Node modules
+**/node_modules

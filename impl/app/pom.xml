@@ -16,16 +16,6 @@
     <dependencies>
         <dependency>
             <groupId>com.mbmk</groupId>
-            <artifactId>easykrk-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mbmk</groupId>
-            <artifactId>easykrk-services</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mbmk</groupId>
             <artifactId>easykrk-web</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
