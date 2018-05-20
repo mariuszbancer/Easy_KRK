@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7.22
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: easyKrk
+      MYSQL_USER: easyKrk
+      MYSQL_PASSWORD: easyKrk
+    ports:
+      - 3306:3306
