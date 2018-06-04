@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {Routes} from "@angular/router";
-import {AppComponent} from "./app.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {PublicPageGuard} from "./services/auth/public-page.guard";
 import {RegisterComponent} from "./auth/register/register.component";
 import {PrivatePageGuard} from "./services/auth/private-page.guard";
+import {HomeComponent} from "./components/home/home.component";
 
 @NgModule({
   imports: [
@@ -17,8 +17,8 @@ export class AppRoutingModule { }
 
 export const routes: Routes = [
   {
-    path: 'app',
-    component: AppComponent,
+    path: 'home',
+    component: HomeComponent,
     canActivate: [PrivatePageGuard]
   },
   {
@@ -33,7 +33,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'app',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];

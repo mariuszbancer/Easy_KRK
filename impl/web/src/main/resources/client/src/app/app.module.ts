@@ -14,12 +14,15 @@ import {AuthService} from "./services/auth/auth.service";
 import {JwtInterceptor} from "./interceptors/JwtInterceptor";
 import {AlertComponent} from "./directives/alert/alert.component";
 import {AlertService} from "./services/alert.service";
+import {AppNavComponent} from "./directives/nav/app-nav.component";
+import {ComponentsModule} from "./components/components.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent
+    AlertComponent,
+    AppNavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import {AlertService} from "./services/alert.service";
     AppRoutingModule,
     LoginModule,
     RegisterModule,
+    ComponentsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

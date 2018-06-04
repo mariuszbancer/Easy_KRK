@@ -38,12 +38,12 @@ public class UserService implements UserDetailsService {
         if(userWithSameUsername.isPresent()) {
             throw new RuntimeException("Username already taken");
         }
+
         User user = User.builder()
                 .active(true)
                 .username(params.getUsername())
                 .password(passwordEncoder.encode(params.getPassword()))
                 .build();
-        System.out.println("TEST");
         userRepository.deleteByUsername(user.getUsername());
         userRepository.save(user);
     }

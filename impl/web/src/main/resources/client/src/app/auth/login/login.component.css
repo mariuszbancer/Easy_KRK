@@ -1,0 +1,7 @@
+:host ::ng-deep body {
+  background-image: url("/assets/bg-01.jpg");
+}
+
+:host ::ng-deep body {
+  background: aqua;
+}

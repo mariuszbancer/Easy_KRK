@@ -37,7 +37,9 @@ export class AuthService {
       .subscribe((resp: any) => {
       localStorage.setItem('jwt', resp.token);
       this.authEvents.next(new DidLogin());
-    });
+      console.log("login");
+      console.log(localStorage.getItem('jwt'))
+      });
     return observable;
   }
 

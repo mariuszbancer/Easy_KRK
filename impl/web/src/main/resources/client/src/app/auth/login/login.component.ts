@@ -6,6 +6,11 @@ import {AlertService} from "../../services/alert.service";
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
+  styles: ["" +
+  "body {" +
+  "  background-image: url(\"/assets/bg-01.jpg\");" +
+  "}"
+  ]
 })
 export class LoginComponent {
 
@@ -20,11 +25,14 @@ export class LoginComponent {
   login(username, password) {
     this.authService.login(username, password)
       .subscribe(() => {
-        this.router.navigate(['app']);
+        console.log("redirectToApp");
+        this.router.navigate(['home']);
       }, e => this.handleError(e));
   }
 
   handleError(error) {
+    console.log("loginError");
+    console.log(error);
     this.alertService.error(error);
     this.loading = false;
   }
