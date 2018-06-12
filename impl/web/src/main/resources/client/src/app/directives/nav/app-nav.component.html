@@ -1,0 +1,41 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">Uczelnia</a>
+  <div class="navbar-expand mr-auto">
+    <ul class="nav navbar-nav">
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['changesSuggestions']">Lista sugestii zmian
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['newChangeSuggestion']">Nowa sugestia zmian
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['educationPrograms']">Programy kształcenia
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['settings']">Ustawienia
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           (click)="logout()">Wyloguj
+        </a>
+      </li>
+    </div>
+  </div>
+</nav>
