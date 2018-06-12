@@ -25,8 +25,6 @@ export class LoginComponent {
   login(username, password) {
     this.authService.login(username, password)
       .subscribe(() => {
-        console.log("redirectToApp");
-        this.router.navigate(['home']);
       }, e => this.handleError(e));
   }
 

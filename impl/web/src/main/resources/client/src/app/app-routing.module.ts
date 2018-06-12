@@ -6,6 +6,7 @@ import {PublicPageGuard} from "./services/auth/public-page.guard";
 import {RegisterComponent} from "./auth/register/register.component";
 import {PrivatePageGuard} from "./services/auth/private-page.guard";
 import {HomeComponent} from "./components/home/home.component";
+import {ChangeSuggestionsListComponent} from "./components/changeSuggestions/change-suggestions-list.component";
 
 @NgModule({
   imports: [
@@ -30,6 +31,11 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [PublicPageGuard]
+  },
+  {
+    path: 'changesSuggestions',
+    component: ChangeSuggestionsListComponent,
+    canActivate: [PrivatePageGuard]
   },
   {
     path: '',

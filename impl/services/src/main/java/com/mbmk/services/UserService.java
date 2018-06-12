@@ -29,6 +29,7 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.debug("Service call to loadUserByUsername {}", username);
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username not found"));
     }
 
@@ -44,7 +45,6 @@ public class UserService implements UserDetailsService {
                 .username(params.getUsername())
                 .password(passwordEncoder.encode(params.getPassword()))
                 .build();
-        userRepository.deleteByUsername(user.getUsername());
         userRepository.save(user);
     }
 

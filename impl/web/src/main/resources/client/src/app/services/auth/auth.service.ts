@@ -5,13 +5,15 @@ declare var require: any;
 import {Injectable} from "@angular/core";
 import {JsonHttp} from "./json-http";
 import {Observable} from "rxjs/internal/Observable";
+import {Router} from "@angular/router";
+import {share} from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
 
   private authEvents: Subject<AuthEvent>;
 
-  constructor(private http: JsonHttp) {
+  constructor(private http: JsonHttp, private router:Router) {
     this.authEvents = new Subject<AuthEvent>();
   }
 
@@ -20,7 +22,7 @@ export class AuthService {
       username: username,
       password: password,
     };
-    let observable = this.http.post('/api/register', body, {});
+    let observable = this.http.post('/api/register', body, {}).pipe(share());
     observable.subscribe(resp  => {
       this.authEvents.next(new DidRegister())
     });
@@ -32,13 +34,12 @@ export class AuthService {
       username: username,
       password: password,
     };
-    let observable = this.http.post('/api/login', body, {});
+    let observable = this.http.post('/api/login', body, {}).pipe(share());
     observable
       .subscribe((resp: any) => {
-      localStorage.setItem('jwt', resp.token);
-      this.authEvents.next(new DidLogin());
-      console.log("login");
-      console.log(localStorage.getItem('jwt'))
+        localStorage.setItem('jwt', resp.token);
+        this.authEvents.next(new DidLogin());
+        this.router.navigate(['home']);
       });
     return observable;
   }
