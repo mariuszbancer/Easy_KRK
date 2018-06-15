@@ -1,6 +1,7 @@
 package com.mbmk.security;
 
 import io.jsonwebtoken.JwtException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@Slf4j
 @Component
 public class AuthenticationFilter extends GenericFilterBean {
 
@@ -30,13 +32,14 @@ public class AuthenticationFilter extends GenericFilterBean {
             Authentication authentication = tokenAuthenticationService.getAuthentication((HttpServletRequest) request);
             SecurityContextHolder.getContext().setAuthentication(authentication);
             chain.doFilter(request, response);
-            SecurityContextHolder.getContext().setAuthentication(null);
+//            SecurityContextHolder.getContext().setAuthentication(null);
         } catch (AuthenticationException | JwtException e) {
             SecurityContextHolder.clearContext();
             ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             PrintWriter out = response.getWriter();
             out.print("{\"error\":\"Unauthorized\"}");
+            log.debug(e.toString());
         }
     }
 }

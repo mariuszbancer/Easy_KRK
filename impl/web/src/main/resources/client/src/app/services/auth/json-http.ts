@@ -7,7 +7,7 @@ const mergeAuthToken = (options) => {
   let newHeaders = new HttpHeaders(newOptions.headers);
   const jwt = localStorage.getItem('jwt');
   if (jwt) {
-    newHeaders.set('authorization', `Bearer ${jwt}`);
+    newHeaders.set('Authorization', `Bearer ${jwt}`);
   }
   newOptions.headers = newHeaders;
   return newOptions;

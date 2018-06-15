@@ -30,7 +30,7 @@ public final class TokenHandler {
         final Optional<User> userOptional = userRepository.findOneByCurrentAuthToken(token);
         if(userOptional.isPresent()) {
             User user = userOptional.get();
-            if(user.getTokenExpiryDate() == null || user.getTokenExpiryDate().isBefore(LocalDate.now()) || user.getTokenExpiryDate().isEqual(LocalDate.now())) {
+            if(user.getTokenExpiryDate() == null || user.getTokenExpiryDate().isAfter(LocalDate.now())) {
                 throw new AuthenticationServiceException("Authorization token expired");
             }
             return Optional.of(user);

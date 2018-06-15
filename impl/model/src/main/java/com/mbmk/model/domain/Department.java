@@ -25,6 +25,9 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private List<EducationProgram> educationPrograms;
 
+    @OneToMany
+    private List<FieldOfStudy> fieldOfStudies;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

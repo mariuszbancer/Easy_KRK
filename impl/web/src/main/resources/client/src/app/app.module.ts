@@ -16,6 +16,9 @@ import {AlertComponent} from "./directives/alert/alert.component";
 import {AlertService} from "./services/alert.service";
 import {AppNavComponent} from "./directives/nav/app-nav.component";
 import {ComponentsModule} from "./components/components.module";
+import {RestModule} from "./services/rest/rest.module";
+import {CommonModule} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,10 +30,14 @@ import {ComponentsModule} from "./components/components.module";
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     LoginModule,
     RegisterModule,
     ComponentsModule,
+    RestModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
