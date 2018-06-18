@@ -25,6 +25,7 @@ public class DepartmentController {
 
     @GetMapping(path = "departments/{id}/fieldOfStudies")
     public List<FieldOfStudyDto> getAllFieldOfStudies(@PathVariable("id") Long departmentId) {
+        log.debug("Rest request to get all fields of studies by departmentId: {}", departmentId);
         return departmentService.getFieldOfStudiesByDepartment(departmentId);
     }
 }

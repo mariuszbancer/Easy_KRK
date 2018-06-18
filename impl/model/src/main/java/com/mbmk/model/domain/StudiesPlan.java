@@ -2,10 +2,7 @@ package com.mbmk.model.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -19,7 +16,7 @@ import java.util.Objects;
 @Data
 public class StudiesPlan {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
 
     private LocalDate adoptionDate;

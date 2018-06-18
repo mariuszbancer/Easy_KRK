@@ -2,10 +2,7 @@ package com.mbmk.model.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,7 +15,7 @@ import java.util.Objects;
 @Data
 public class MinisterialEducationEffect {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private String symbol;
     private String content;

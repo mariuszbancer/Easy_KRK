@@ -15,7 +15,7 @@ import java.util.Objects;
 @Data
 public class Subject {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private String name;
 

@@ -15,7 +15,7 @@ import java.util.Objects;
 @Data
 public class Department {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private String name;
 

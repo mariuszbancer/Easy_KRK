@@ -3,6 +3,7 @@ package com.mbmk.model.domain;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ import java.util.Objects;
 @Data
 public class EducationCycle {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private LocalDate startedAt;
 

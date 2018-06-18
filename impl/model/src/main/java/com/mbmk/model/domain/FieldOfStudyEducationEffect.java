@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 public class FieldOfStudyEducationEffect {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private String symbol;
     private String content;

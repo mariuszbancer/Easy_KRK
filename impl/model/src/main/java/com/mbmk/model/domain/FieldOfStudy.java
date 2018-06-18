@@ -2,10 +2,7 @@ package com.mbmk.model.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -16,7 +13,7 @@ import javax.persistence.Table;
 @Data
 public class FieldOfStudy {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
 
     private String name;

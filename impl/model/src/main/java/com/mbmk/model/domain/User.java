@@ -21,9 +21,7 @@ import java.util.Objects;
 @Data
 public class User implements UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
+    @Id @GeneratedValue
     private Long id;
 
     private String username;
@@ -34,6 +32,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "guardian")
     private List<Course> course;
+
+    @OneToMany(mappedBy = "createdBy")
+    private List<ChangeSuggestion> changeSuggestions;
 
     @ManyToMany
     @JoinTable(

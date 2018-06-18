@@ -15,7 +15,7 @@ import java.util.Objects;
 @Data
 public class Course {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private Integer ectsPoIntegers;
     private String code;

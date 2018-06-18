@@ -15,9 +15,9 @@ import java.util.Objects;
 @Data
 public class EducationProgram {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
-    private String fieldOfStury;
+    private String fieldOfStudy;
     private LevelOfEducation levelOfEducation;
     private StudiesForm studiesForm;
     private StudiesProfile studiesProfile;
@@ -44,7 +44,7 @@ public class EducationProgram {
         if (o == null || getClass() != o.getClass()) return false;
         EducationProgram that = (EducationProgram) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(fieldOfStury, that.fieldOfStury) &&
+                Objects.equals(fieldOfStudy, that.fieldOfStudy) &&
                 levelOfEducation == that.levelOfEducation &&
                 studiesForm == that.studiesForm &&
                 studiesProfile == that.studiesProfile &&
@@ -54,6 +54,6 @@ public class EducationProgram {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, fieldOfStury, levelOfEducation, studiesForm, studiesProfile, language);
+        return Objects.hash(id, fieldOfStudy, levelOfEducation, studiesForm, studiesProfile, language);
     }
 }

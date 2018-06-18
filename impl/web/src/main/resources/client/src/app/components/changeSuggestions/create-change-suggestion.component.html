@@ -1,0 +1,42 @@
+<div class="row">
+  <div class=col-md-8>
+    <div class="form-group">
+      <label for="comment">Treść sugestii:</label>
+      <textarea class="form-control" rows="10" id="comment" [(ngModel)]="changeSuggestionContent"></textarea>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <select class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
+              (ngModelChange)="selectDepartment($event)">
+        <option *ngFor="let department of departments" [value]="department.id">
+          {{department.name}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <select class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
+        <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.name">
+          {{fieldOfStudy.name}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <select class="form-control" [(ngModel)] = "changeSuggestionType">
+        <option value="Plan studiów">Plan studiów</option>
+        <option value="Program studiów">Program studiów</option>
+        <option value="Efekt kształcenia">Efekt kształcenia</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="offset-10"></div>
+  <div class="col-md-1">
+    <button class="btn btn-success" (click)="save()">Zapisz</button>
+  </div>
+  <div class="col-md-1">
+    <button class="btn btn-primary" (click)="redirectToChangeSuggestionList()">Anuluj</button>
+  </div>
+</div>

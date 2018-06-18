@@ -16,7 +16,7 @@ import java.util.Objects;
 @Data
 public class Semester {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
 
     private LocalDate startsAt;

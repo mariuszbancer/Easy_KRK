@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="col-md-4">
-    <select class="form-control" [(ngModel)] = "selectedDepartment" (ngModelChange)="selectDepartment($event)">
+    <select class="form-control" data-live-search="true" [(ngModel)] = "selectedDepartment" (ngModelChange)="selectDepartment($event)">
       <option *ngFor="let department of departments" [value]="department.id">
         {{department.name}}
       </option>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-md-4">
-    <select class="form-control">
+    <select class="form-control" data-live-search="true">
       <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.name">
         {{fieldOfStudy.name}}
       </option>
@@ -17,10 +17,10 @@
   </div>
 
   <div class="col-md-4">
-    <select class="selectpicker" data-live-search="true">
-      <option value="0">Plan studiów</option>
-      <option value="1">Program studiów</option>
-      <option value="2">Efekt kształcenia</option>
+    <select class="form-control">
+      <option value="Plan studiów">Plan studiów</option>
+      <option value="Program studiów">Program studiów</option>
+      <option value="Efekt kształcenia">Efekt kształcenia</option>
     </select>
   </div>
 </div>
@@ -54,4 +54,14 @@
     </tr>
     </tbody>
   </table>
+</div>
+
+<div class="row">
+  <div class="offset-8"></div>
+  <div class="col-md-2">
+    <button class="btn btn-success" (click)="createSuggestion()">Zaproponuj sugestię</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary">Anuluj</button>
+  </div>
 </div>

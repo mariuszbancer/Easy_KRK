@@ -15,7 +15,7 @@ import java.util.Objects;
 @Data
 public class Module {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
 
     @ManyToMany

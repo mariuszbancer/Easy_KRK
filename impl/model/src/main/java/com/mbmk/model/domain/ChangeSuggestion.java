@@ -2,10 +2,7 @@ package com.mbmk.model.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -18,13 +15,19 @@ import java.util.Objects;
 @Data
 public class ChangeSuggestion {
 
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private String content;
     private LocalDate notifiedAt;
 
     @ManyToOne
+    private User createdBy;
+
+    @ManyToOne
     private EducationProgram educationProgram;
+
+    @Enumerated(EnumType.STRING)
+    private ChangeSuggestionType changeSuggestionType;
 
     @Override
     public boolean equals(Object o) {
@@ -38,7 +41,6 @@ public class ChangeSuggestion {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, content, notifiedAt);
     }
 }
