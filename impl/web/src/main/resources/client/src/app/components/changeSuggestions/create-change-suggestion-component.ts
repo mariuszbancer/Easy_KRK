@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {DepartmentService} from "../../services/rest/department.service";
 import {Router} from "@angular/router";
-import {JsonHttp} from "../../services/auth/json-http";
 import {ChangeSuggestionService} from "../../services/rest/changeSuggestion.service";
 
 @Component({

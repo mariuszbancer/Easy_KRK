@@ -5,6 +5,7 @@ import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateChangeSuggestionComponent} from "./changeSuggestions/create-change-suggestion-component";
 import {UpdateChangeSuggestionComponent} from "./changeSuggestions/update-change-suggestion-component";
+import {CreateEducationProgramComponent} from "./educationPrograms/create-education-program-component";
 
 @NgModule({
   imports: [
@@ -16,13 +17,15 @@ import {UpdateChangeSuggestionComponent} from "./changeSuggestions/update-change
     HomeComponent,
     ChangeSuggestionsListComponent,
     CreateChangeSuggestionComponent,
-    UpdateChangeSuggestionComponent
+    UpdateChangeSuggestionComponent,
+    CreateEducationProgramComponent
   ],
   exports: [
     HomeComponent,
     ChangeSuggestionsListComponent,
     CreateChangeSuggestionComponent,
-    UpdateChangeSuggestionComponent
+    UpdateChangeSuggestionComponent,
+    CreateEducationProgramComponent
   ]
 })
 export class ComponentsModule {

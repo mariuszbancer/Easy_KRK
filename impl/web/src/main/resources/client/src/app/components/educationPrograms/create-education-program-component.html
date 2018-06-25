@@ -1,0 +1,67 @@
+<div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="fieldOfStudySelect">Kierunek</label>
+      <select id="fieldOfStudySelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.fieldOfStudyId">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="profileSelect">Profil</label>
+      <select id="profileSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.studiesProfile">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="createdDateSelect">Data uchwalenia</label>
+      <select id="createdDateSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.createdAt">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <label for="educationLevelSelect">Poziom kształcenia</label>
+      <select id="educationLevelSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.levelOfEducation">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="courseFormSelect">Forma kursu</label>
+      <select id="courseFormSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.courseForm">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="startDateSelect">Obowiązuje od</label>
+      <select id="startDateSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.startsAt">
+        <option [value]=-1></option>
+        <option *ngFor="" [value]="">
+          {{}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="language">Język</label>
+      <input id="language" type="text" placeholder="Język" [(ngModel)]="educationProgram.language">
+    </div>
+  </div>
+</div>
