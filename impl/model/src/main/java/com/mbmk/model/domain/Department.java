@@ -25,8 +25,11 @@ public class Department {
     @OneToMany(mappedBy = "department")
     private List<EducationProgram> educationPrograms;
 
-    @OneToMany
+    @OneToMany(mappedBy = "department")
     private List<FieldOfStudy> fieldOfStudies;
+
+    @OneToMany(mappedBy = "department")
+    private List<ChangeSuggestion> changeSuggestions;
 
     @Override
     public boolean equals(Object o) {

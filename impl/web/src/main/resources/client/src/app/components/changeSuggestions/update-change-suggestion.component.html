@@ -2,12 +2,12 @@
   <div class=col-md-8>
     <div class="form-group">
       <label for="comment">Treść sugestii:</label>
-      <textarea class="form-control" rows="10" id="comment" [(ngModel)]="changeSuggestionContent"></textarea>
+      <textarea class="form-control" rows="10" id="comment" [(ngModel)]="currentChangeSuggestion.content"></textarea>
     </div>
   </div>
   <div class="col-md-4">
     <div class="row">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
+      <select class="form-control" data-live-search="true" [(ngModel)]="currentChangeSuggestion.departmentId"
               (ngModelChange)="selectDepartment($event)">
         <option *ngFor="let department of departments" [value]="department.id">
           {{department.name}}
@@ -15,14 +15,14 @@
       </select>
     </div>
     <div class="row">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
+      <select class="form-control" data-live-search="true" [(ngModel)]="currentChangeSuggestion.fieldOfStudyId">
         <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.id">
           {{fieldOfStudy.name}}
         </option>
       </select>
     </div>
     <div class="row">
-      <select class="form-control" [(ngModel)] = "changeSuggestionType">
+      <select class="form-control" [(ngModel)] = "currentChangeSuggestion.changeSuggestionType">
         <option value="Plan studiów">Plan studiów</option>
         <option value="Program studiów">Program studiów</option>
         <option value="Efekt kształcenia">Efekt kształcenia</option>
@@ -34,9 +34,9 @@
 <div class="row">
   <div class="offset-10"></div>
   <div class="col-md-1">
-    <button class="btn btn-success" (click)="save()">Zapisz</button>
+    <button class="btn btn-success" (click)="update()">Zapisz</button>
   </div>
   <div class="col-md-1">
-    <button class="btn btn-primary" (click)="redirectToChangeSuggestionList()">Anuluj</button>
+    <button class="btn btn-primary" (click)="redirectToChangeSuggestionList()">Wstecz</button>
   </div>
 </div>

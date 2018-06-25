@@ -3,6 +3,7 @@ package com.mbmk.model.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -20,4 +21,7 @@ public class FieldOfStudy {
 
     @ManyToOne
     private Department department;
+
+    @OneToMany(mappedBy = "fieldOfStudy")
+    private List<ChangeSuggestion> changeSuggestions;
 }

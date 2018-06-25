@@ -9,9 +9,7 @@ export class PrivatePageGuard implements CanActivate {
   }
 
   canActivate() {
-    console.log("Can activate");
     if (!this.authService.isSignedIn()) {
-      console.log("Redirect to login");
       this.router.navigate(['login']);
     }
     return this.authService.isSignedIn();

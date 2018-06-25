@@ -29,6 +29,12 @@ public class ChangeSuggestion {
     @Enumerated(EnumType.STRING)
     private ChangeSuggestionType changeSuggestionType;
 
+    @ManyToOne
+    private Department department;
+
+    @ManyToOne
+    private FieldOfStudy fieldOfStudy;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

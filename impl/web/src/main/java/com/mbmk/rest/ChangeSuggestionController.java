@@ -23,10 +23,31 @@ public class ChangeSuggestionController {
         return changeSuggestionService.getChangeSuggestions();
     }
 
+    @GetMapping("changeSuggestions/{id}")
+    @ResponseBody
+    public ChangeSuggestionDto getById(@PathVariable("id") Long id) {
+        log.debug("Get change suggestion by id {}", id);
+        return changeSuggestionService.getById(id);
+    }
+
+    @PutMapping("changeSuggestions")
+    @ResponseBody
+    public ChangeSuggestionDto updateChangeSuggestion(@RequestBody ChangeSuggestionDto changeSuggestionDto) {
+        log.debug("Update change suggestion {}", changeSuggestionDto);
+        return changeSuggestionService.updateChangeSuggestion(changeSuggestionDto);
+    }
+
     @PostMapping("changeSuggestions")
+    @ResponseBody
     public ChangeSuggestionDto createChangeSuggestions(@RequestBody ChangeSuggestionDto changeSuggestionDto) {
         log.debug("Create change suggestion {}", changeSuggestionDto);
         return changeSuggestionService.createChangeSuggestion(changeSuggestionDto);
+    }
+
+    @DeleteMapping("changeSuggestions/{id}")
+    public void deleteById(@PathVariable("id") Long id) {
+        log.debug("Delete change suggestion by id {}", id);
+        changeSuggestionService.deleteById(id);
     }
 
 }

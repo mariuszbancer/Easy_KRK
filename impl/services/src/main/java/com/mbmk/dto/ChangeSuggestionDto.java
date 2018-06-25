@@ -16,6 +16,10 @@ public class ChangeSuggestionDto {
     private String content;
     private LocalDate notifiedAt;
     private Long educationProgramId;
-    private Long createdById;
+    private String createdByUsername;
     private String changeSuggestionType;
+    private Long departmentId;
+    private Long fieldOfStudyId;
+    private String departmentName;
+    private String fieldOfStudyName;
 }

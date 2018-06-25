@@ -4,6 +4,7 @@ import {ChangeSuggestionsListComponent} from "./changeSuggestions/change-suggest
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateChangeSuggestionComponent} from "./changeSuggestions/create-change-suggestion-component";
+import {UpdateChangeSuggestionComponent} from "./changeSuggestions/update-change-suggestion-component";
 
 @NgModule({
   imports: [
@@ -14,12 +15,14 @@ import {CreateChangeSuggestionComponent} from "./changeSuggestions/create-change
   declarations: [
     HomeComponent,
     ChangeSuggestionsListComponent,
-    CreateChangeSuggestionComponent
+    CreateChangeSuggestionComponent,
+    UpdateChangeSuggestionComponent
   ],
   exports: [
     HomeComponent,
     ChangeSuggestionsListComponent,
-    CreateChangeSuggestionComponent
+    CreateChangeSuggestionComponent,
+    UpdateChangeSuggestionComponent
   ]
 })
 export class ComponentsModule {

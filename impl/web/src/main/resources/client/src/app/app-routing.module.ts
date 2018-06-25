@@ -8,6 +8,7 @@ import {PrivatePageGuard} from "./services/auth/private-page.guard";
 import {HomeComponent} from "./components/home/home.component";
 import {ChangeSuggestionsListComponent} from "./components/changeSuggestions/change-suggestions-list.component";
 import {CreateChangeSuggestionComponent} from "./components/changeSuggestions/create-change-suggestion-component";
+import {UpdateChangeSuggestionComponent} from "./components/changeSuggestions/update-change-suggestion-component";
 
 @NgModule({
   imports: [
@@ -41,6 +42,11 @@ export const routes: Routes = [
   {
     path: 'createChangeSuggestion',
     component: CreateChangeSuggestionComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: 'updateChangeSuggestion/:id',
+    component: UpdateChangeSuggestionComponent,
     canActivate: [PrivatePageGuard]
   },
   {

@@ -37,7 +37,9 @@ export class CreateChangeSuggestionComponent implements OnInit {
   save() {
     var changeSuggestion = {
       content: this.changeSuggestionContent,
-      changeSuggestionType: this.changeSuggestionType
+      changeSuggestionType: this.changeSuggestionType,
+      fieldOfStudyId: this.selectedFieldOfStudy,
+      departmentId: this.selectedDepartment
     };
     this.changeSuggestionService.createChangeSuggestion(changeSuggestion)
       .subscribe((resp) => {

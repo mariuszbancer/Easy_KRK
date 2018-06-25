@@ -22,8 +22,12 @@ public class ChangeSuggestionMapper {
                 .content(changeSuggestion.getContent())
                 .notifiedAt(changeSuggestion.getNotifiedAt())
                 .educationProgramId(nonNull(changeSuggestion.getEducationProgram()) ? changeSuggestion.getEducationProgram().getId() : null)
-                .createdById(nonNull(changeSuggestion.getCreatedBy()) ? changeSuggestion.getCreatedBy().getId() : null)
+                .createdByUsername(nonNull(changeSuggestion.getCreatedBy()) ? changeSuggestion.getCreatedBy().getUsername() : null)
                 .changeSuggestionType(changeSuggestion.getChangeSuggestionType().getRegionalizedString())
+                .departmentId(nonNull(changeSuggestion.getDepartment()) ? changeSuggestion.getDepartment().getId() : null)
+                .departmentName(nonNull(changeSuggestion.getDepartment()) ? changeSuggestion.getDepartment().getName() : null)
+                .fieldOfStudyId(nonNull(changeSuggestion.getFieldOfStudy()) ? changeSuggestion.getFieldOfStudy().getId() : null)
+                .fieldOfStudyName(nonNull(changeSuggestion.getFieldOfStudy()) ? changeSuggestion.getFieldOfStudy().getName() : null)
                 .build();
     }
 }
