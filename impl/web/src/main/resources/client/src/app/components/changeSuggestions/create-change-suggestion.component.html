@@ -1,4 +1,4 @@
-<div class="row">
+<div style="margin-left: 10px" class="row">
   <div class=col-md-8>
     <div class="form-group">
       <label for="comment">Treść sugestii:</label>
@@ -7,7 +7,10 @@
   </div>
   <div class="col-md-4">
     <div class="row">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
+      <div>
+        <label for="departmentSelect">Wydział</label>
+      </div>
+      <select id="departmentSelect" class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
               (ngModelChange)="selectDepartment($event)">
         <option *ngFor="let department of departments" [value]="department.id">
           {{department.name}}
@@ -15,14 +18,20 @@
       </select>
     </div>
     <div class="row">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
+      <div>
+        <label for="fieldOfStudySelect">Kurs</label>
+      </div>
+      <select id="fieldOfStudySelect" class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
         <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.id">
           {{fieldOfStudy.name}}
         </option>
       </select>
     </div>
     <div class="row">
-      <select class="form-control" [(ngModel)] = "changeSuggestionType">
+      <div>
+        <label for="affectsSelect">Dotyczy</label>
+      </div>
+      <select id="affectsSelect" class="form-control" [(ngModel)] = "changeSuggestionType">
         <option value="Plan studiów">Plan studiów</option>
         <option value="Program studiów">Program studiów</option>
         <option value="Efekt kształcenia">Efekt kształcenia</option>

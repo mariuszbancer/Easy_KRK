@@ -1,7 +1,10 @@
-<div>
+<div style="margin-left: 10px">
   <div class="row">
     <div class="col-md-4">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
+      <div>
+        <label for="departmentSelect">Wydział</label>
+      </div>
+      <select id="departmentSelect" class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
               (ngModelChange)="selectDepartment($event)">
         <option [value]=-1></option>
         <option *ngFor="let department of departments" [value]="department.id">
@@ -11,7 +14,10 @@
     </div>
 
     <div class="col-md-4">
-      <select class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
+      <div>
+        <label for="fieldOfStudySelect">Kurs</label>
+      </div>
+      <select id="fieldOfStudySelect" class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
         <option [value]=-1></option>
         <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.name">
           {{fieldOfStudy.name}}
@@ -20,7 +26,10 @@
     </div>
 
     <div class="col-md-4">
-      <select class="form-control" [(ngModel)]="selectedChangeSuggestionType">
+      <div>
+        <label for="affectsSelect">Dotyczy</label>
+      </div>
+      <select id="affectsSelect" class="form-control" [(ngModel)]="selectedChangeSuggestionType">
         <option value=""></option>
         <option value="Plan studiów">Plan studiów</option>
         <option value="Program studiów">Program studiów</option>
