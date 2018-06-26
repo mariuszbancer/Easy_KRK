@@ -1,67 +1,68 @@
-<div>
+<div style="margin-left: 40px">
   <div class="row">
     <div class="col-md-4">
       <label for="fieldOfStudySelect">Kierunek</label>
-      <select id="fieldOfStudySelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.fieldOfStudyId">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
+      <select id="fieldOfStudySelect" class="form-control" data-live-search="true"
+              [(ngModel)]="educationProgram.fieldOfStudyId">
+        <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.id">
+          {{fieldOfStudy.name}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
       <label for="profileSelect">Profil</label>
-      <select id="profileSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.studiesProfile">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
+      <select id="profileSelect" class="form-control" data-live-search="true"
+              [(ngModel)]="educationProgram.studiesProfile">
+        <option *ngFor="let studyProfile of studiesProfiles" [value]="studyProfile">
+          {{studyProfile}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
-      <label for="createdDateSelect">Data uchwalenia</label>
-      <select id="createdDateSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.createdAt">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
-        </option>
-      </select>
+      <div>
+        <label for="createdDate">Data uchwalenia</label>
+      </div>
+      <input id="createdDate" type="date" name="Data uchwalenia" [(ngModel)]="educationProgram.createdAt">
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-4">
       <label for="educationLevelSelect">Poziom kształcenia</label>
-      <select id="educationLevelSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.levelOfEducation">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
+      <select id="educationLevelSelect" class="form-control" data-live-search="true"
+              [(ngModel)]="educationProgram.levelOfEducation">
+        <option *ngFor="let levelOfEducation of levelsOfEducation" [value]="levelOfEducation">
+          {{levelOfEducation}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
       <label for="courseFormSelect">Forma kursu</label>
-      <select id="courseFormSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.courseForm">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
+      <select id="courseFormSelect" class="form-control" data-live-search="true"
+              [(ngModel)]="educationProgram.courseForm">
+        <option *ngFor="let courseForm of courseForms" [value]="courseForm">
+          {{courseForm}}
         </option>
       </select>
     </div>
     <div class="col-md-4">
-      <label for="startDateSelect">Obowiązuje od</label>
-      <select id="startDateSelect" class="form-control" data-live-search="true" [(ngModel)]="educationProgram.startsAt">
-        <option [value]=-1></option>
-        <option *ngFor="" [value]="">
-          {{}}
-        </option>
-      </select>
+      <div>
+        <label for="startDate">Obowiązuje od</label>
+      </div>
+      <input id="startDate" type="date" name="Obowiązuje od" [(ngModel)]="educationProgram.startsAt">
+
+    </div>
+  </div>
+  <div style="margin-top: 20px" class="row">
+    <div class="col-md-4">
+      <label for="language">Język</label>
+      <input style="margin-left: 10px" id="language" type="text" [(ngModel)]="educationProgram.language">
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
-      <label for="language">Język</label>
-      <input id="language" type="text" placeholder="Język" [(ngModel)]="educationProgram.language">
+    <div class="offset-4 col-md-4">
+      <button class="btn btn-success" (click)="save()">Zapisz</button>
+      <button style="margin-left: 20px" class="btn btn-primary" (click)="cancel()">Anuluj</button>
     </div>
   </div>
 </div>

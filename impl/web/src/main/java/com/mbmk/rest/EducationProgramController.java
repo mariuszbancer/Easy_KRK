@@ -1,6 +1,7 @@
 package com.mbmk.rest;
 
 import com.mbmk.dto.EducationProgramDto;
+import com.mbmk.dto.EducationProgramEnumDto;
 import com.mbmk.services.EducationProgramService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,5 +49,11 @@ public class EducationProgramController {
     public void deleteById(@PathVariable("id") Long id) {
         log.debug("Delete education program by id {}", id);
         educationProgramService.deleteById(id);
+    }
+
+    @GetMapping("educationPrograms/enums")
+    @ResponseBody
+    public EducationProgramEnumDto enumValues() {
+        return new EducationProgramEnumDto();
     }
 }

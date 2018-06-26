@@ -19,6 +19,9 @@ public class FieldOfStudy {
 
     private String name;
 
+    @OneToOne
+    private EducationProgram educationProgram;
+
     @ManyToOne
     private Department department;
 

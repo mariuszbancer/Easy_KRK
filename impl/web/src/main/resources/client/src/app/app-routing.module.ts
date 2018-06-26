@@ -54,6 +54,10 @@ export const routes: Routes = [
     path: 'createEducationProgram',
     component: CreateEducationProgramComponent
   },
+  /*{
+    path: 'educationPrograms',
+    component: Educa
+  },*/
   {
     path: '',
     redirectTo: 'home',

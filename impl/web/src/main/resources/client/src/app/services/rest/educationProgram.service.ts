@@ -25,4 +25,8 @@ export class EducationProgramService {
   deleteById(id: null) {
     return this.http.delete("/api/educationPrograms/" + id, {});
   }
+
+  getEnums() {
+    return this.http.get("/api/educationPrograms/enums", {})
+  }
 }

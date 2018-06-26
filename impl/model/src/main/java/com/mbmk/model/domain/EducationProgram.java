@@ -3,6 +3,8 @@ package com.mbmk.model.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,11 +19,16 @@ public class EducationProgram {
 
     @Id @GeneratedValue
     private Long id;
-    private String fieldOfStudy;
+
+    @OneToOne
+    private FieldOfStudy fieldOfStudy;
     private LevelOfEducation levelOfEducation;
     private StudiesForm studiesForm;
     private StudiesProfile studiesProfile;
+    private CourseForm courseForm;
     private String language;
+    private LocalDate createdAt;
+    private LocalDate startsAt;
 
     @OneToOne
     private Department department;
