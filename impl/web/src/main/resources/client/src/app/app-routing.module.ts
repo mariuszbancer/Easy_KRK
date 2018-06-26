@@ -69,7 +69,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'changesSuggestions',
+    redirectTo: 'login',
     pathMatch: 'full'
   }
 ];

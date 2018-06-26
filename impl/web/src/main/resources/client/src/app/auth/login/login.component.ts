@@ -29,8 +29,6 @@ export class LoginComponent {
   }
 
   handleError(error) {
-    console.log("loginError");
-    console.log(error);
     this.alertService.error(error);
     this.loading = false;
   }

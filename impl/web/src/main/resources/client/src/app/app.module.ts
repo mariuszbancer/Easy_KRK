@@ -19,6 +19,7 @@ import {ComponentsModule} from "./components/components.module";
 import {RestModule} from "./services/rest/rest.module";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UnauthorizedInterceptor} from "./interceptors/UnauthorizedInterceptor";
 
 
 @NgModule({
@@ -51,6 +52,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
       useClass: JwtInterceptor,
       multi: true
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
