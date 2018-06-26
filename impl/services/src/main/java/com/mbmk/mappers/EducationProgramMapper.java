@@ -19,13 +19,14 @@ public class EducationProgramMapper {
     public EducationProgramDto toDto(EducationProgram educationProgram) {
         return EducationProgramDto.builder()
                 .id(educationProgram.getId())
-                .courseForm(educationProgram.getCourseForm())
+                .courseForm(educationProgram.getCourseForm().getFormName())
                 .createdAt(educationProgram.getCreatedAt())
                 .startsAt(educationProgram.getStartsAt())
                 .fieldOfStudyId(nonNull(educationProgram.getFieldOfStudy()) ? educationProgram.getFieldOfStudy().getId() : null)
+                .fieldOfStudyName(nonNull(educationProgram.getFieldOfStudy()) ? educationProgram.getFieldOfStudy().getName() : null)
                 .language(educationProgram.getLanguage())
-                .levelOfEducation(educationProgram.getLevelOfEducation())
-                .studiesProfile(educationProgram.getStudiesProfile())
+                .levelOfEducation(educationProgram.getLevelOfEducation().getLevelName())
+                .studiesProfile(educationProgram.getStudiesProfile().getProfileName())
                 .build();
     }
 }

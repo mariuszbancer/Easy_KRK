@@ -2,8 +2,7 @@ package com.mbmk.services;
 
 import com.mbmk.dto.EducationProgramDto;
 import com.mbmk.mappers.EducationProgramMapper;
-import com.mbmk.model.domain.EducationProgram;
-import com.mbmk.model.domain.FieldOfStudy;
+import com.mbmk.model.domain.*;
 import com.mbmk.model.repository.EducationProgramRepository;
 import com.mbmk.model.repository.FieldOfStudyRepository;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +46,7 @@ public class EducationProgramService {
         }
         EducationProgram educationProgram = educationProgramOptional.get();
         if(nonNull(educationProgramDto.getCourseForm())) {
-            educationProgram.setCourseForm(educationProgramDto.getCourseForm());
+            educationProgram.setCourseForm(CourseForm.courseForm(educationProgramDto.getCourseForm()));
         }
         if(nonNull(educationProgramDto.getStartsAt())) {
             educationProgram.setStartsAt(educationProgramDto.getStartsAt());
@@ -57,10 +56,10 @@ public class EducationProgramService {
             fieldOfStudy.ifPresent(educationProgram::setFieldOfStudy);
         }
         if(nonNull(educationProgramDto.getLevelOfEducation())) {
-            educationProgram.setLevelOfEducation(educationProgramDto.getLevelOfEducation());
+            educationProgram.setLevelOfEducation(LevelOfEducation.levelOfEducation(educationProgramDto.getLevelOfEducation()));
         }
         if(nonNull(educationProgramDto.getStudiesProfile())) {
-            educationProgram.setStudiesProfile(educationProgramDto.getStudiesProfile());
+            educationProgram.setStudiesProfile(StudiesProfile.studiesProfile(educationProgramDto.getStudiesProfile()));
         }
         if(!StringUtils.isEmpty(educationProgramDto.getLanguage())) {
             educationProgram.setLanguage(educationProgramDto.getLanguage());
@@ -75,7 +74,7 @@ public class EducationProgramService {
     public EducationProgramDto createEducationProgram(EducationProgramDto educationProgramDto) {
         EducationProgram.EducationProgramBuilder educationProgramBuilder = EducationProgram.builder();
         if(nonNull(educationProgramDto.getCourseForm())) {
-            educationProgramBuilder.courseForm(educationProgramDto.getCourseForm());
+            educationProgramBuilder.courseForm(CourseForm.courseForm(educationProgramDto.getCourseForm()));
         }
         if(nonNull(educationProgramDto.getStartsAt())) {
             educationProgramBuilder.startsAt(educationProgramDto.getStartsAt());
@@ -85,10 +84,10 @@ public class EducationProgramService {
             fieldOfStudy.map(educationProgramBuilder::fieldOfStudy);
         }
         if(nonNull(educationProgramDto.getLevelOfEducation())) {
-            educationProgramBuilder.levelOfEducation(educationProgramDto.getLevelOfEducation());
+            educationProgramBuilder.levelOfEducation(LevelOfEducation.levelOfEducation(educationProgramDto.getLevelOfEducation()));
         }
         if(nonNull(educationProgramDto.getStudiesProfile())) {
-            educationProgramBuilder.studiesProfile(educationProgramDto.getStudiesProfile());
+            educationProgramBuilder.studiesProfile(StudiesProfile.studiesProfile(educationProgramDto.getStudiesProfile()));
         }
         if(!StringUtils.isEmpty(educationProgramDto.getLanguage())) {
             educationProgramBuilder.language(educationProgramDto.getLanguage());

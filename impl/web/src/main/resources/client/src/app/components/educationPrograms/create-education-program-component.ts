@@ -34,12 +34,12 @@ export class CreateEducationProgramComponent implements OnInit {
 
   save() {
     this.educationProgramService.createEducationProgram(this.educationProgram).subscribe((resp: any) => {
-      // this.router.navigate([])
+      this.router.navigate(['educationPrograms'])
     })
   }
 
   cancel() {
-    // this.router.navigate([])
+    this.router.navigate(['educationPrograms'])
   }
 
 }

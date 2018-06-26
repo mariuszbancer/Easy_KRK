@@ -1,8 +1,5 @@
 package com.mbmk.dto;
 
-import com.mbmk.model.domain.CourseForm;
-import com.mbmk.model.domain.LevelOfEducation;
-import com.mbmk.model.domain.StudiesProfile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,10 +14,11 @@ import java.time.LocalDate;
 public class EducationProgramDto {
     private Long id;
     private Long fieldOfStudyId;
-    private StudiesProfile studiesProfile;
+    private String fieldOfStudyName;
+    private String studiesProfile;
     private LocalDate createdAt;
     private LocalDate startsAt;
-    private LevelOfEducation levelOfEducation;
-    private CourseForm courseForm;
+    private String levelOfEducation;
+    private String courseForm;
     private String language;
 }

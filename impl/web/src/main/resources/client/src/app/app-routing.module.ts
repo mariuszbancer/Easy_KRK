@@ -10,6 +10,7 @@ import {ChangeSuggestionsListComponent} from "./components/changeSuggestions/cha
 import {CreateChangeSuggestionComponent} from "./components/changeSuggestions/create-change-suggestion-component";
 import {UpdateChangeSuggestionComponent} from "./components/changeSuggestions/update-change-suggestion-component";
 import {CreateEducationProgramComponent} from "./components/educationPrograms/create-education-program-component";
+import {EducationProgramsListComponent} from "./components/educationPrograms/education-programs-list.component";
 
 @NgModule({
   imports: [
@@ -52,12 +53,14 @@ export const routes: Routes = [
   },
   {
     path: 'createEducationProgram',
-    component: CreateEducationProgramComponent
+    component: CreateEducationProgramComponent,
+    canActivate: [PrivatePageGuard]
   },
-  /*{
+  {
     path: 'educationPrograms',
-    component: Educa
-  },*/
+    component: EducationProgramsListComponent,
+    canActivate: [PrivatePageGuard]
+  },
   {
     path: '',
     redirectTo: 'home',

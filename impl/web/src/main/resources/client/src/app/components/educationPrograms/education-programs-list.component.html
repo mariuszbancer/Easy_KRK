@@ -1,0 +1,38 @@
+<div style="margin-left: 30px">
+  <div class="row">
+    <div>Programy kształcenia</div>
+    <table class="table" style="margin-left: 20px">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Kierunek</th>
+        <th scope="col">Poziom kształcenia</th>
+        <th scope="col">Profil</th>
+        <th scope="col">Forma studiów</th>
+        <th scope="col">Język</th>
+        <th scope="col">Plan studiów</th>
+        <th scope="col">Program studiów</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let educationProgram of educationPrograms">
+        <th scope="row">{{educationProgram.id}}</th>
+        <td>{{educationProgram.fieldOfStudyName}}</td>
+        <td>{{educationProgram.levelOfEducation}}</td>
+        <td>{{educationProgram.studiesProfile}}</td>
+        <td>{{educationProgram.courseForm}}</td>
+        <td>{{educationProgram.language}}</td>
+        <td><a>{{educationProgram.studiesPlan}}</a></td>
+        <td><a>{{educationProgram.studiesProgram}}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <div class="offset-8"></div>
+    <div class="col-md-2">
+      <button class="btn btn-success" (click)="add()">Dodaj</button>
+    </div>
+  </div>
+</div>
