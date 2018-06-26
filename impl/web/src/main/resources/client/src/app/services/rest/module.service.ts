@@ -5,6 +5,9 @@ import {JsonHttp} from "../auth/json-http";
 export class ModuleService {
 
   constructor(private http: JsonHttp) {
+  }
 
+  createModule(module: any) {
+    return this.http.post("/api/modules", module, {});
   }
 }

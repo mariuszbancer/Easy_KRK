@@ -5,12 +5,13 @@ import {LoginComponent} from "./auth/login/login.component";
 import {PublicPageGuard} from "./services/auth/public-page.guard";
 import {RegisterComponent} from "./auth/register/register.component";
 import {PrivatePageGuard} from "./services/auth/private-page.guard";
-import {HomeComponent} from "./components/home/home.component";
 import {ChangeSuggestionsListComponent} from "./components/changeSuggestions/change-suggestions-list.component";
 import {CreateChangeSuggestionComponent} from "./components/changeSuggestions/create-change-suggestion-component";
 import {UpdateChangeSuggestionComponent} from "./components/changeSuggestions/update-change-suggestion-component";
 import {CreateEducationProgramComponent} from "./components/educationPrograms/create-education-program-component";
 import {EducationProgramsListComponent} from "./components/educationPrograms/education-programs-list.component";
+import {CreateModuleComponent} from "./components/modules/create-module.component";
+import {CreateCourseComponent} from "./components/courses/create-course.component";
 
 @NgModule({
   imports: [
@@ -21,11 +22,6 @@ import {EducationProgramsListComponent} from "./components/educationPrograms/edu
 export class AppRoutingModule { }
 
 export const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [PrivatePageGuard]
-  },
   {
     path: 'login',
     component: LoginComponent,
@@ -62,8 +58,18 @@ export const routes: Routes = [
     canActivate: [PrivatePageGuard]
   },
   {
+    path: 'createModule',
+    component: CreateModuleComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: 'createCourse',
+    component: CreateCourseComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'changesSuggestions',
     pathMatch: 'full'
   }
 ];

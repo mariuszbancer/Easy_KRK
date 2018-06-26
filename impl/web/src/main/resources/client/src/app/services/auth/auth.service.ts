@@ -39,7 +39,7 @@ export class AuthService {
       .subscribe((resp: any) => {
         localStorage.setItem('jwt', resp.token);
         this.authEvents.next(new DidLogin());
-        this.router.navigate(['home']);
+        this.router.navigate(['changesSuggestions']);
       });
     return observable;
   }

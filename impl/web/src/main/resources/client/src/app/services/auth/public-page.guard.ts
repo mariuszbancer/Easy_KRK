@@ -9,9 +9,8 @@ export class PublicPageGuard implements CanActivate {
   }
 
   canActivate() {
-    console.log("canActivate publicPageGuard");
     if (this.authService.isSignedIn()) {
-      this.router.navigate(['home']);
+      this.router.navigate(['changesSuggestions']);
     }
     return !this.authService.isSignedIn();
   }

@@ -14,4 +14,4 @@ INSERT INTO department(id, name, department_id) VALUES(12, 'W12', null)
 
 INSERT INTO field_of_study(id, name, department_id) VALUES (1, 'Informatyka', 8)
 INSERT INTO field_of_study(id, name, department_id) VALUES (2, 'Informatyka w jez.ang', 8)
-INSERT INTO field_of_study(id, name, department_id) VALUES (3, 'Zarządzanie', 8)
+INSERT INTO field_of_study(id, name, department_id) VALUES (3, 'Zarzadzanie', 8)

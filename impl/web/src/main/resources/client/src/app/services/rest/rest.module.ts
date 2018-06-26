@@ -4,6 +4,7 @@ import {ChangeSuggestionService} from "./changeSuggestion.service";
 import {EducationProgramService} from "./educationProgram.service";
 import {FieldOfStudyService} from "./fieldOfStudy.service";
 import {ModuleService} from "./module.service";
+import {CourseService} from "./course.service";
 
 @NgModule({
   imports: [],
@@ -14,7 +15,8 @@ import {ModuleService} from "./module.service";
     ChangeSuggestionService,
     EducationProgramService,
     FieldOfStudyService,
-    ModuleService
+    ModuleService,
+    CourseService
   ]
 })
 export class RestModule {
