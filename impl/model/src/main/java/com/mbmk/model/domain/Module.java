@@ -18,6 +18,8 @@ public class Module {
     @Id @GeneratedValue
     private Long id;
 
+    private String name;
+
     @ManyToMany
     @JoinTable(
             name = "modules_courses",
@@ -31,12 +33,12 @@ public class Module {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Module module = (Module) o;
-        return Objects.equals(id, module.id);
+        return Objects.equals(name, module.name);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id);
+        return Objects.hash(name);
     }
 }

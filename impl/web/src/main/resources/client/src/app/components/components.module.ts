@@ -7,6 +7,7 @@ import {CreateChangeSuggestionComponent} from "./changeSuggestions/create-change
 import {UpdateChangeSuggestionComponent} from "./changeSuggestions/update-change-suggestion-component";
 import {CreateEducationProgramComponent} from "./educationPrograms/create-education-program-component";
 import {EducationProgramsListComponent} from "./educationPrograms/education-programs-list.component";
+import {CreateModuleComponent} from "./modules/create-module.component";
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {EducationProgramsListComponent} from "./educationPrograms/education-prog
     CreateChangeSuggestionComponent,
     UpdateChangeSuggestionComponent,
     CreateEducationProgramComponent,
-    EducationProgramsListComponent
+    EducationProgramsListComponent,
+    CreateModuleComponent
   ],
   exports: [
     HomeComponent,
@@ -28,7 +30,8 @@ import {EducationProgramsListComponent} from "./educationPrograms/education-prog
     CreateChangeSuggestionComponent,
     UpdateChangeSuggestionComponent,
     CreateEducationProgramComponent,
-    EducationProgramsListComponent
+    EducationProgramsListComponent,
+    CreateModuleComponent
   ]
 })
 export class ComponentsModule {

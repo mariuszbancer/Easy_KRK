@@ -1,0 +1,23 @@
+package com.mbmk.rest;
+
+import com.mbmk.dto.ModuleDto;
+import com.mbmk.services.ModuleService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("api")
+@Slf4j
+public class ModuleController {
+
+    private final ModuleService moduleService;
+
+    @PostMapping("modules")
+    @ResponseBody
+    public ModuleDto createModules(@RequestBody ModuleDto moduleDto) {
+        log.debug("Create module {}", moduleDto);
+        return moduleService.createModule(moduleDto);
+    }
+}
