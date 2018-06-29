@@ -12,6 +12,7 @@ export class CreateCourseComponent implements OnInit {
   courseTypes: any[] = [];
   passingMethods: any[] = [];
   courseKinds: any[] = [];
+  studiesProfiles: any[] = [];
 
   constructor(private courseService: CourseService) {
   }
@@ -22,12 +23,12 @@ export class CreateCourseComponent implements OnInit {
       this.courseTypes = resp.courseTypes;
       this.passingMethods = resp.passingMethods;
       this.courseKinds = resp.courseKinds;
+      this.studiesProfiles = resp.studiesProfiles;
     })
   }
 
   createCourse() {
     this.courseService.createCourse(this.course).subscribe((resp: any) => {
-      console.log(resp);
       this.course = {}
     })
   }

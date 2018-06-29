@@ -5,10 +5,7 @@ import com.mbmk.dto.CreateCourseEnumDto;
 import com.mbmk.services.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,12 @@ public class CourseController {
     @ResponseBody
     public CreateCourseEnumDto createCourseEnumDto() {
         return new CreateCourseEnumDto();
+    }
+
+    @PostMapping("courses")
+    @ResponseBody
+    public CourseDto createCourse(@RequestBody CourseDto courseDto) {
+        log.debug("create course: {}", courseDto);
+        return courseService.create(courseDto);
     }
 }

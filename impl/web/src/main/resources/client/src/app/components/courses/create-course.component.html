@@ -8,25 +8,25 @@
         <div>
           <label for="ectsPoints">Punkty ECTS</label>
         </div>
-        <input id="ectsPoints" type="number" [(ngModel)]="course.ectsPoints">
+        <input class="form-control" id="ectsPoints" type="number" [(ngModel)]="course.ectsPoints">
       </div>
       <div>
         <div>
           <label for="code">Kod</label>
         </div>
-        <input id="code" type="string" [(ngModel)]="course.code">
+        <input id="code" class="form-control" type="string" [(ngModel)]="course.code">
       </div>
       <div>
         <div>
           <label for="zzuHours">Godziny ZZU</label>
         </div>
-        <input id="zzuHours" type="number" [(ngModel)]="course.zzuHours">
+        <input id="zzuHours" class="form-control" type="number" [(ngModel)]="course.zzuHours">
       </div>
       <div>
         <div>
           <label for="cnpsHours">Godziny CNPS</label>
         </div>
-        <input id="cnpsHours" type="number" [(ngModel)]="course.cnpsHours">
+        <input id="cnpsHours" class="form-control" type="number" [(ngModel)]="course.cnpsHours">
       </div>
     </div>
 
@@ -48,6 +48,16 @@
         <select id="passingMethodSelect" class="form-control" data-live-search="true" [(ngModel)]="course.passingMethod">
           <option *ngFor="let passingMethod of passingMethods" [value]="passingMethod">
             {{passingMethod}}
+          </option>
+        </select>
+      </div>
+      <div>
+        <div>
+          <label for="studiesProfileSelect">Profil kursu</label>
+        </div>
+        <select id="studiesProfileSelect" class="form-control" data-live-search="true" [(ngModel)]="course.studiesProfile">
+          <option *ngFor="let studiesProfile of studiesProfiles" [value]="studiesProfile">
+            {{studiesProfile}}
           </option>
         </select>
       </div>
@@ -76,6 +86,12 @@
           </select>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-5">
+      <button class="btn btn-success" (click)="createCourse()">Zapisz</button>
     </div>
   </div>
 </div>

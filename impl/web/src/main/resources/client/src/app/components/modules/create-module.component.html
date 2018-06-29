@@ -9,9 +9,10 @@
         <div>
           <label for="coursesSelect">Kursy</label>
         </div>
-        <select id="coursesSelect" class="form-control" data-live-search="true" [(ngModel)]="selectedCourse">
+        <select id="coursesSelect" class="form-control" data-live-search="true" (change)="selectCourse($event)">
+          <option value=""></option>
           <option *ngFor="let course of courses" [value]="course.id">
-            {{course.name}}
+            {{course.code}}
           </option>
         </select>
       </div>
@@ -24,13 +25,13 @@
       <table class="table">
         <thead>
           <th>Id kursu</th>
-          <th>Nazwa kursu</th>
+          <th>Kod kursu</th>
           <th>Akcje</th>
         </thead>
         <tbody>
           <tr *ngFor="let course of module.courses">
             <td>{{course.id}}</td>
-            <td>{{course.name}}</td>
+            <td>{{course.code}}</td>
             <td>
               <button style="margin-left: 5px" class="btn btn-primary" (click)="editCourse(course.id)">Edycja
               </button>

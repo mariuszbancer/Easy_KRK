@@ -17,16 +17,17 @@ public class Course {
 
     @Id @GeneratedValue
     private Long id;
-    private Integer ectsPoIntegers;
+    private Long ectsPoints;
     private String code;
-    private Integer zzuHours;
-    private Integer cnpsHours;
+    private Long zzuHours;
+    private Long cnpsHours;
     private CourseForm courseForm;
     private PassingMethod passingMethod;
     private Boolean universityWide;
     private Boolean practical;
     private CourseKind courseKind;
     private CourseType courseType;
+    private StudiesProfile studiesProfile;
     private String name;
 
     @ManyToMany(mappedBy = "courses")
@@ -51,8 +52,7 @@ public class Course {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return Objects.equals(id, course.id) &&
-                Objects.equals(ectsPoIntegers, course.ectsPoIntegers) &&
+        return Objects.equals(ectsPoints, course.ectsPoints) &&
                 Objects.equals(code, course.code) &&
                 Objects.equals(zzuHours, course.zzuHours) &&
                 Objects.equals(cnpsHours, course.cnpsHours) &&
@@ -68,6 +68,6 @@ public class Course {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, ectsPoIntegers, code, zzuHours, cnpsHours, courseForm, passingMethod, universityWide, practical, courseKind, courseType, name);
+        return Objects.hash(ectsPoints, code, zzuHours, cnpsHours, courseForm, passingMethod, universityWide, practical, courseKind, courseType, name);
     }
 }

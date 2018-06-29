@@ -19,4 +19,22 @@ public class CourseService {
         List<Course> courses = courseRepository.findAll();
         return courseMapper.toDtos(courses);
     }
+
+    public CourseDto create(CourseDto courseDto) {
+        Course.CourseBuilder courseBuilder = Course.builder();
+        courseBuilder
+                .cnpsHours(courseDto.getCnpsHours())
+                .zzuHours(courseDto.getZzuHours())
+                .ectsPoints(courseDto.getEctsPoints())
+                .code(courseDto.getCode())
+                .courseForm(courseDto.getCourseForm())
+                .courseKind(courseDto.getCourseKind())
+                .studiesProfile(courseDto.getStudiesProfile())
+                .passingMethod(courseDto.getPassingMethod())
+                .courseType(courseDto.getCourseType());
+
+        Course course = courseBuilder.build();
+        Course savedCourse = courseRepository.save(course);
+        return courseMapper.toDto(savedCourse);
+    }
 }

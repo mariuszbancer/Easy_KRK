@@ -14,6 +14,8 @@ export class CreateModuleComponent implements OnInit {
     courses: []
   };
 
+  ctrl = this;
+
   constructor(private moduleService: ModuleService,
               private courseService: CourseService,
               private router: Router) {
@@ -27,7 +29,9 @@ export class CreateModuleComponent implements OnInit {
 
   save() {
     this.moduleService.createModule(this.module).subscribe((resp: any) => {
-      console.log(resp);
+      this.module = {
+        courses: []
+      };
     })
   }
 
@@ -38,7 +42,25 @@ export class CreateModuleComponent implements OnInit {
     this.selectedCourse = null;
   }
 
+  deleteCourse(courseId: any) {
+    for(var i = 0; i < this.module.courses.length ; i++) {
+      if (this.module.courses[i].id == courseId) {
+        this.module.courses.splice(i, 1);
+      }
+    }
+  }
+
   createCourse() {
     this.router.navigate(['createCourse']);
+  }
+
+  selectCourse(event: any) {
+    let courseId = event.target.value;
+    let coursesToIterate = this.courses;
+    for(let course of coursesToIterate) {
+      if(course.id == courseId) {
+        this.selectedCourse = course;
+      }
+    }
   }
 }

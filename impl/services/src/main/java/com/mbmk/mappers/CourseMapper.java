@@ -14,6 +14,15 @@ public class CourseMapper {
         return CourseDto.builder()
                 .id(course.getId())
                 .name(course.getName())
+                .ectsPoints(course.getEctsPoints())
+                .code(course.getCode())
+                .zzuHours(course.getZzuHours())
+                .cnpsHours(course.getCnpsHours())
+                .courseForm(course.getCourseForm())
+                .passingMethod(course.getPassingMethod())
+                .studiesProfile(course.getStudiesProfile())
+                .courseKind(course.getCourseKind())
+                .courseType(course.getCourseType())
                 .build();
     }
 
