@@ -4,6 +4,7 @@ import {ChangeSuggestionService} from "./changeSuggestion.service";
 import {EducationProgramService} from "./educationProgram.service";
 import {FieldOfStudyService} from "./fieldOfStudy.service";
 import {ModuleService} from "./module.service";
+import {SemesterService} from "./semester.service";
 import {CourseService} from "./course.service";
 
 @NgModule({
@@ -16,6 +17,7 @@ import {CourseService} from "./course.service";
     EducationProgramService,
     FieldOfStudyService,
     ModuleService,
+    SemesterService,
     CourseService
   ]
 })
