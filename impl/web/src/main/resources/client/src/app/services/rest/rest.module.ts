@@ -4,6 +4,7 @@ import {ChangeSuggestionService} from "./changeSuggestion.service";
 import {EducationProgramService} from "./educationProgram.service";
 import {FieldOfStudyService} from "./fieldOfStudy.service";
 import {ModuleService} from "./module.service";
+import {SemesterService} from "./semester.service";
 import {CourseService} from "./course.service";
 import {StudiesProgramService} from "./studiesProgram.service";
 
@@ -17,6 +18,8 @@ import {StudiesProgramService} from "./studiesProgram.service";
     EducationProgramService,
     FieldOfStudyService,
     ModuleService,
+    SemesterService,
+    CourseService,
     CourseService,
     StudiesProgramService
   ]

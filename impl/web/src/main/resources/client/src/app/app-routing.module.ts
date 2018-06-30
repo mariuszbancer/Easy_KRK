@@ -11,6 +11,7 @@ import {UpdateChangeSuggestionComponent} from "./components/changeSuggestions/up
 import {CreateEducationProgramComponent} from "./components/educationPrograms/create-education-program-component";
 import {EducationProgramsListComponent} from "./components/educationPrograms/education-programs-list.component";
 import {CreateModuleComponent} from "./components/modules/create-module.component";
+import {CreateSemesterComponent} from "./components/semesters/create-semester.component";
 import {CreateCourseComponent} from "./components/courses/create-course.component";
 import {CreateStudiesPlanComponent} from "./components/studiesPlans/create-studies-plan.component";
 import {CreateStudiesProgramComponent} from "./components/studiesPrograms/create-studies-program.component";
@@ -62,6 +63,11 @@ export const routes: Routes = [
   {
     path: 'createModule',
     component: CreateModuleComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: 'createSemester',
+    component: CreateSemesterComponent,
     canActivate: [PrivatePageGuard]
   },
   {

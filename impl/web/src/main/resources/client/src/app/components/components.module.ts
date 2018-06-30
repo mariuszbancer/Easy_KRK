@@ -8,6 +8,7 @@ import {UpdateChangeSuggestionComponent} from "./changeSuggestions/update-change
 import {CreateEducationProgramComponent} from "./educationPrograms/create-education-program-component";
 import {EducationProgramsListComponent} from "./educationPrograms/education-programs-list.component";
 import {CreateModuleComponent} from "./modules/create-module.component";
+import {CreateSemesterComponent} from "./semesters/create-semester.component";
 import {CreateCourseComponent} from "./courses/create-course.component";
 import {CreateStudiesPlanComponent} from "./studiesPlans/create-studies-plan.component";
 import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-program.component";
@@ -26,6 +27,7 @@ import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-pr
     CreateEducationProgramComponent,
     EducationProgramsListComponent,
     CreateModuleComponent,
+    CreateSemesterComponent,
     CreateCourseComponent,
     CreateStudiesPlanComponent,
     CreateStudiesProgramComponent
@@ -38,6 +40,7 @@ import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-pr
     CreateEducationProgramComponent,
     EducationProgramsListComponent,
     CreateModuleComponent,
+    CreateSemesterComponent,
     CreateCourseComponent,
     CreateStudiesPlanComponent,
     CreateStudiesProgramComponent

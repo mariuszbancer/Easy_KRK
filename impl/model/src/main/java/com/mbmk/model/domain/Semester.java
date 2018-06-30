@@ -19,9 +19,6 @@ public class Semester {
     @Id @GeneratedValue
     private Long id;
 
-    private LocalDate startsAt;
-    private LocalDate endsAt;
-
     @ManyToOne
     private StudiesPlan studiesPlan;
 
@@ -38,14 +35,12 @@ public class Semester {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Semester semester = (Semester) o;
-        return Objects.equals(id, semester.id) &&
-                Objects.equals(startsAt, semester.startsAt) &&
-                Objects.equals(endsAt, semester.endsAt);
+        return Objects.equals(id, semester.id);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, startsAt, endsAt);
+        return Objects.hash(id);
     }
 }
