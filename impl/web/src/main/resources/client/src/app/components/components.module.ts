@@ -9,6 +9,8 @@ import {CreateEducationProgramComponent} from "./educationPrograms/create-educat
 import {EducationProgramsListComponent} from "./educationPrograms/education-programs-list.component";
 import {CreateModuleComponent} from "./modules/create-module.component";
 import {CreateCourseComponent} from "./courses/create-course.component";
+import {CreateStudiesPlanComponent} from "./studiesPlans/create-studies-plan.component";
+import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-program.component";
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import {CreateCourseComponent} from "./courses/create-course.component";
     CreateEducationProgramComponent,
     EducationProgramsListComponent,
     CreateModuleComponent,
-    CreateCourseComponent
+    CreateCourseComponent,
+    CreateStudiesPlanComponent,
+    CreateStudiesProgramComponent
   ],
   exports: [
     HomeComponent,
@@ -34,7 +38,9 @@ import {CreateCourseComponent} from "./courses/create-course.component";
     CreateEducationProgramComponent,
     EducationProgramsListComponent,
     CreateModuleComponent,
-    CreateCourseComponent
+    CreateCourseComponent,
+    CreateStudiesPlanComponent,
+    CreateStudiesProgramComponent
   ]
 })
 export class ComponentsModule {

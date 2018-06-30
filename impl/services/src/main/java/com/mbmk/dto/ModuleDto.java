@@ -16,4 +16,5 @@ public class ModuleDto {
     private Long id;
     private String name;
     private List<CourseDto> courses;
+    private String coursesString;
 }

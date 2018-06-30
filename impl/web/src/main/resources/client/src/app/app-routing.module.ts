@@ -12,6 +12,8 @@ import {CreateEducationProgramComponent} from "./components/educationPrograms/cr
 import {EducationProgramsListComponent} from "./components/educationPrograms/education-programs-list.component";
 import {CreateModuleComponent} from "./components/modules/create-module.component";
 import {CreateCourseComponent} from "./components/courses/create-course.component";
+import {CreateStudiesPlanComponent} from "./components/studiesPlans/create-studies-plan.component";
+import {CreateStudiesProgramComponent} from "./components/studiesPrograms/create-studies-program.component";
 
 @NgModule({
   imports: [
@@ -65,6 +67,16 @@ export const routes: Routes = [
   {
     path: 'createCourse',
     component: CreateCourseComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: "createStudiesPlan",
+    component: CreateStudiesPlanComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: "createStudiesProgram",
+    component: CreateStudiesProgramComponent,
     canActivate: [PrivatePageGuard]
   },
   {

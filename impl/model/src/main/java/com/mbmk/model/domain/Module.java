@@ -28,6 +28,9 @@ public class Module {
     )
     private List<Course> courses;
 
+    @ManyToMany(mappedBy = "modules")
+    private List<StudiesProgram> studiesPrograms;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

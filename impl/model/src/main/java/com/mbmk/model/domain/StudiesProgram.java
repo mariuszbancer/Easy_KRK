@@ -2,11 +2,9 @@ package com.mbmk.model.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,8 +19,20 @@ public class StudiesProgram {
     @Id @GeneratedValue
     private Long id;
 
+    private String description;
     private LocalDate adoptionDate;
     private LocalDate startsAt;
+
+    @ManyToMany
+    @JoinTable(
+            name = "studies_programs_modules",
+            joinColumns = { @JoinColumn(name = "studies_program_id", referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "module_id", referencedColumnName = "id") }
+    )
+    private List<Module> modules;
+
+    @OneToMany(mappedBy = "studiesProgram")
+    private List<EducationProgram> educationPrograms;
 
     @Override
     public boolean equals(Object o) {

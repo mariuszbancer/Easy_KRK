@@ -42,4 +42,8 @@ public class ModuleService {
         courseRepository.saveAll(savedModule.getCourses());
         return moduleMapper.toDto(savedModule);
     }
+
+    public List<ModuleDto> getAllModules() {
+        return moduleMapper.toDtos(moduleRepository.findAll());
+    }
 }

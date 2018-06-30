@@ -21,4 +21,6 @@ public class EducationProgramDto {
     private String levelOfEducation;
     private String courseForm;
     private String language;
+    private Long studiesProgramId;
+    private Long studiesPlanId;
 }

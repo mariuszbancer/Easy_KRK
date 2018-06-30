@@ -45,6 +45,9 @@ public class EducationProgram {
     @ManyToOne
     private StudiesPlan studiesPlan;
 
+    @ManyToOne
+    private StudiesProgram studiesProgram;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -27,6 +27,8 @@ public class EducationProgramMapper {
                 .language(educationProgram.getLanguage())
                 .levelOfEducation(educationProgram.getLevelOfEducation().getLevelName())
                 .studiesProfile(educationProgram.getStudiesProfile().getProfileName())
+                .studiesProgramId(nonNull(educationProgram.getStudiesProgram()) ? educationProgram.getStudiesProgram().getId() : null)
+                .studiesPlanId(nonNull(educationProgram.getStudiesPlan()) ? educationProgram.getStudiesPlan().getId() : null)
                 .build();
     }
 }

@@ -1,0 +1,37 @@
+<div>
+  <div class="row">
+    <div class="col-md-2">
+      <div>
+        <label for="createdDate">Uchwalony</label>
+      </div>
+      <input id="createdDate" type="date" name="Data uchwalenia" [(ngModel)]="studiesPlan.createdAt">
+    </div>
+    <div class="col-md-2">
+      <div>
+        <label for="startDate">Obowiązuje od</label>
+      </div>
+      <input id="startDate" type="date" name="Obowiązuje od" [(ngModel)]="studiesPlan.startsAt">
+    </div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+      <th>Moduł</th>
+      <th>Kursy</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let semester of studiesPlan.semesters">
+        <td>{{semester.name}}</td>
+        <td>{{semester.coursesString}}</td>
+        <td>
+          <!--<button style="margin-left: 5px" class="btn btn-primary" (click)="editCourse(course.id)">Edycja</button>-->
+          <button style="margin-left: 5px" class="btn btn-warning" (click)="deleteSemester(semester.id)">Usuń</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-success" (click)="save()">Zapisz</button>
+  </div>
+</div>
