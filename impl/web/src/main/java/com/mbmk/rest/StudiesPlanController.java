@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +19,7 @@ public class StudiesPlanController {
     private final StudiesPlanService studiesPlanService;
 
     @PostMapping("studiesPlans")
-    @RequestBody
+    @ResponseBody
     public StudiesPlanDto create(@RequestBody StudiesPlanDto studiesPlanDto) {
       log.debug("Create studies plan {}", studiesPlanDto);
       return studiesPlanService.create(studiesPlanDto);

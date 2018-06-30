@@ -10,7 +10,8 @@ import {EducationProgramService} from "../../services/rest/educationProgram.serv
 export class CreateStudiesProgramComponent implements OnInit {
 
   studiesProgram = {
-    modules: []
+    modules: [],
+    educationProgramId: null
   };
   modules = [];
   educationPrograms = [];
@@ -73,7 +74,8 @@ export class CreateStudiesProgramComponent implements OnInit {
     this.studiesProgram.educationProgramId = this.selectedEducationProgram.id;
     this.studiesProgramService.create(this.studiesProgram).subscribe((resp: any) => {
       this.studiesProgram = {
-        modules: []
+        modules: [],
+        educationProgramId: null
       }
     })
   }

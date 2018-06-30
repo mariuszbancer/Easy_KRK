@@ -85,6 +85,16 @@
             </option>
           </select>
         </div>
+        <div>
+          <div>
+            <label for="courseGuardianSelect">Opiekun kursu</label>
+          </div>
+          <select id="courseGuardianSelect" class="form-control" data-live-search="true" (change) = "selectGuardian($event)">
+            <option *ngFor="let user of users" [value]="user.id">
+              {{user.username}}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

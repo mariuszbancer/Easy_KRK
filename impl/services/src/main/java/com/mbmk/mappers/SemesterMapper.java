@@ -1,6 +1,7 @@
 package com.mbmk.mappers;
 
 import com.mbmk.dto.SemesterDto;
+import com.mbmk.model.domain.Course;
 import com.mbmk.model.domain.Semester;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,8 @@ public class SemesterMapper {
         return SemesterDto.builder()
                 .id(semester.getId())
                 .courses(!CollectionUtils.isEmpty(semester.getCourses()) ? courseMapper.toDtos(semester.getCourses()): new ArrayList<>())
+                .coursesString(!CollectionUtils.isEmpty(semester.getCourses()) ? semester.getCourses().stream().map(Course::getCode).collect(Collectors.joining(",")) : "")
+                .number(semester.getNumber())
                 .build();
     }
 

@@ -1,4 +1,4 @@
-<div>
+<div style="margin-left: 10px">
   <div class="row">
     <div class="col-md-2">
       <div>
@@ -12,16 +12,40 @@
       </div>
       <input id="startDate" type="date" name="Obowiązuje od" [(ngModel)]="studiesPlan.startsAt">
     </div>
+    <div class="col-md-2">
+      <label for="semestersSelect">Semestry</label>
+      <select id="semestersSelect" class="form-control" data-live-search="true"
+              (change)="selectSemester($event)">
+        <option value=""></option>
+        <option *ngFor="let semester of semesters" [value]="semester.id">
+          {{semester.number}} - {{semester.coursesString}}
+        </option>
+      </select>
+      <div class="col-md-2">
+        <button class="btn btn-success" (click)="addSemester()">Dodaj semestr</button>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label for="educationProgramSelect">Program kształcenia</label>
+      <select id="educationProgramSelect" class="form-control" data-live-search="true"
+              (change)="selectEducationProgram($event)">
+        <option value=""></option>
+        <option *ngFor="let educationProgram of educationPrograms" [value]="educationProgram.id">
+          {{educationProgram.fieldOfStudyName}} - {{educationProgram.levelOfEducation}} -
+          {{educationProgram.courseForm}}
+        </option>
+      </select>
+    </div>
   </div>
   <div class="row">
     <table class="table">
       <thead>
-      <th>Moduł</th>
+      <th>Semestry</th>
       <th>Kursy</th>
       </thead>
       <tbody>
       <tr *ngFor="let semester of studiesPlan.semesters">
-        <td>{{semester.name}}</td>
+        <td>{{semester.number}}</td>
         <td>{{semester.coursesString}}</td>
         <td>
           <!--<button style="margin-left: 5px" class="btn btn-primary" (click)="editCourse(course.id)">Edycja</button>-->

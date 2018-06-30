@@ -22,6 +22,8 @@ public class Semester {
     @ManyToOne
     private StudiesPlan studiesPlan;
 
+    private Long number;
+
     @ManyToMany
     @JoinTable(
             name = "semester_courses",

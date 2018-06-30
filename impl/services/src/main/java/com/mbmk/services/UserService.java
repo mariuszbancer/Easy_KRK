@@ -1,6 +1,8 @@
 package com.mbmk.services;
 
+import com.mbmk.dto.UserDto;
 import com.mbmk.dto.auth.auth.AuthParamsDto;
+import com.mbmk.mappers.UserMapper;
 import com.mbmk.model.domain.User;
 import com.mbmk.model.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +24,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserMapper userMapper;
 
 
     @Autowired
@@ -46,6 +52,10 @@ public class UserService implements UserDetailsService {
                 .password(passwordEncoder.encode(params.getPassword()))
                 .build();
         userRepository.save(user);
+    }
+
+    public List<UserDto> getAll() {
+        return userMapper.toDtos(userRepository.findAll());
     }
 
 }

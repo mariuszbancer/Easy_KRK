@@ -33,6 +33,9 @@ public class SemesterService {
             List<Course> courses = courseRepository.findAllById(coursesIds);
             builder.courses(courses);
         }
+        if(nonNull(semesterDto.getNumber())) {
+            builder.number(semesterDto.getNumber());
+        }
         Semester semester = builder.build();
         Semester savedSemester = semesterRepository.save(semester);
         savedSemester.getCourses().forEach(course -> course.getSemesters().add(savedSemester));

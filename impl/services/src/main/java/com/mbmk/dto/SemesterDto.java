@@ -14,4 +14,6 @@ import java.util.List;
 public class SemesterDto {
     private Long id;
     private List<CourseDto> courses;
+    private String coursesString;
+    private Long number;
 }
