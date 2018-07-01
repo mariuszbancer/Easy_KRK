@@ -18,6 +18,7 @@ public class StudiesPlanMapper {
 
     public StudiesPlanDto toDto(StudiesPlan studiesPlan) {
         return StudiesPlanDto.builder()
+                .id(studiesPlan.getId())
                 .createdAt(studiesPlan.getAdoptionDate())
                 .startsAt(studiesPlan.getStartingAt())
                 .semesters(!CollectionUtils.isEmpty(studiesPlan.getSemesters()) ? semesterMapper.toDtos(studiesPlan.getSemesters()) : Collections.emptyList())

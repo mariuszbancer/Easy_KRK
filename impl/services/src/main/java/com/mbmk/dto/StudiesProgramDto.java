@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class StudiesProgramDto {
+    private Long id;
     private Long educationProgramId;
     private String description;
     private LocalDate createdAt;

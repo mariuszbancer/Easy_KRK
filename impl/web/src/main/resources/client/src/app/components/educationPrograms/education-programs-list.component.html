@@ -22,8 +22,8 @@
         <td>{{educationProgram.studiesProfile}}</td>
         <td>{{educationProgram.courseForm}}</td>
         <td>{{educationProgram.language}}</td>
-        <td><a>{{educationProgram.studiesPlanId}}</a></td>
-        <td><a>{{educationProgram.studiesProgramId}}</a></td>
+        <td *ngIf="educationProgram.studiesPlanId"><a [routerLink]="['/updateStudiesPlan', educationProgram.studiesPlanId]">{{educationProgram.studiesPlanId}}</a></td>
+        <td *ngIf="educationProgram.studiesProgramId"><a [routerLink]="['/updateStudiesProgram', educationProgram.studiesProgramId]">{{educationProgram.studiesProgramId}}</a></td>
       </tr>
       </tbody>
     </table>

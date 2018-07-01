@@ -5,10 +5,7 @@ import com.mbmk.services.StudiesPlanService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Service
 @RequiredArgsConstructor
@@ -23,5 +20,17 @@ public class StudiesPlanController {
     public StudiesPlanDto create(@RequestBody StudiesPlanDto studiesPlanDto) {
       log.debug("Create studies plan {}", studiesPlanDto);
       return studiesPlanService.create(studiesPlanDto);
+    }
+
+    @GetMapping("studiesPlans/{id}")
+    @ResponseBody
+    public StudiesPlanDto getById(@PathVariable("id") Long id) {
+        return studiesPlanService.getById(id);
+    }
+
+    @PutMapping("studiesPlans")
+    @ResponseBody
+    public StudiesPlanDto update(@RequestBody StudiesPlanDto studiesPlanDto) {
+        return studiesPlanService.update(studiesPlanDto);
     }
 }

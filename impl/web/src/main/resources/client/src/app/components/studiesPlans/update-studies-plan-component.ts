@@ -1,13 +1,15 @@
-import {Component, OnInit} from "@angular/core";
 import {EducationProgramService} from "../../services/rest/educationProgram.service";
-import {SemesterService} from "../../services/rest/semester.service";
 import {StudiesPlanService} from "../../services/rest/studiesPlan.service";
+import {SemesterService} from "../../services/rest/semester.service";
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
-  selector: 'create-studies-plan',
-  templateUrl: './create-studies-plan.component.html',
+  selector: 'update-studies-plan',
+  templateUrl: './update-studies-plan.component.html',
 })
-export class CreateStudiesPlanComponent implements OnInit {
+export class UpdateStudiesPlanComponent implements OnInit {
   studiesPlan = {
     semesters: [],
     educationProgramId: null
@@ -20,7 +22,8 @@ export class CreateStudiesPlanComponent implements OnInit {
 
   constructor(private semesterService: SemesterService,
               private studiesPlanService: StudiesPlanService,
-              private educationProgramService: EducationProgramService) {
+              private educationProgramService: EducationProgramService,
+              private route: ActivatedRoute) {
 
   }
 
@@ -30,7 +33,13 @@ export class CreateStudiesPlanComponent implements OnInit {
     });
     this.educationProgramService.getAllEducationPrograms().subscribe((resp: any) => {
       this.educationPrograms = resp;
-    })
+      this.route.params.subscribe(params => {
+        let studiesPlanId = +params['id'];
+        this.studiesPlanService.getById(studiesPlanId).subscribe((resp: any) => {
+          this.studiesPlan = resp;
+        });
+      })
+    });
   }
 
   addSemester() {
@@ -57,23 +66,9 @@ export class CreateStudiesPlanComponent implements OnInit {
     }
   }
 
-  selectEducationProgram(event: any) {
-    let educationProgramId = event.target.value;
-    let educationProgramsToIterate = this.educationPrograms;
-    for(let educationProgram of educationProgramsToIterate) {
-      if(educationProgram.id == educationProgramId) {
-        this.selectedEducationProgram = educationProgram;
-      }
-    }
-  }
-
   save() {
-    this.studiesPlan.educationProgramId = this.selectedEducationProgram.id;
-    this.studiesPlanService.create(this.studiesPlan).subscribe((resp: any) => {
-      this.studiesPlan = {
-        semesters: [],
-        educationProgramId: null
-      }
+    this.studiesPlanService.update(this.studiesPlan).subscribe((resp: any) => {
+      this.studiesPlan = resp;
     })
   }
 

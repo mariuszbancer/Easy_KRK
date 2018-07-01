@@ -25,7 +25,7 @@ export class UpdateChangeSuggestionComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      let changeSuggestionId = +params['id']; // (+) converts string 'id' to a number
+      let changeSuggestionId = +params['id'];
       this.changeSuggestionService.getById(changeSuggestionId).subscribe((resp: any) => {
         this.currentChangeSuggestion = resp;
         this.departmentService.getAllDepartments().subscribe((resp: any) => {

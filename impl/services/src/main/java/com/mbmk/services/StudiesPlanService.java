@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,10 +53,48 @@ public class StudiesPlanService {
         }
         StudiesPlan studiesPlan = studiesPlanBuilder.build();
         StudiesPlan savedStudiesPlan = studiesPlanRepository.save(studiesPlan);
-        savedStudiesPlan.getSemesters().forEach(s -> s.setStudiesPlan(savedStudiesPlan));
-        semesterRepository.saveAll(savedStudiesPlan.getSemesters());
-        savedStudiesPlan.getEducationPrograms().forEach(e -> e.setStudiesPlan(savedStudiesPlan));
-        educationProgramRepository.saveAll(savedStudiesPlan.getEducationPrograms());
+        if(!CollectionUtils.isEmpty(savedStudiesPlan.getSemesters())) {
+            savedStudiesPlan.getSemesters().forEach(s -> s.setStudiesPlan(savedStudiesPlan));
+            semesterRepository.saveAll(savedStudiesPlan.getSemesters());
+        }
+        if(!CollectionUtils.isEmpty(savedStudiesPlan.getEducationPrograms())) {
+            savedStudiesPlan.getEducationPrograms().forEach(e -> e.setStudiesPlan(savedStudiesPlan));
+            educationProgramRepository.saveAll(savedStudiesPlan.getEducationPrograms());
+        }
         return studiesPlanMapper.toDto(studiesPlan);
+    }
+
+    public StudiesPlanDto getById(Long id) {
+        Optional<StudiesPlan> studiesPlanOptional = studiesPlanRepository.findById(id);
+        return studiesPlanOptional.map(studiesPlanMapper::toDto).orElse(null);
+    }
+
+    public StudiesPlanDto update(StudiesPlanDto studiesPlanDto) {
+        if(nonNull(studiesPlanDto.getId())) {
+            Optional<StudiesPlan> optionalPlan = studiesPlanRepository.findById(studiesPlanDto.getId());
+            if(optionalPlan.isPresent()) {
+                StudiesPlan studiesPlan = optionalPlan.get();
+                studiesPlan.setAdoptionDate(studiesPlanDto.getCreatedAt());
+                studiesPlan.setStartingAt(studiesPlanDto.getStartsAt());
+                studiesPlan.getSemesters().forEach(semester -> semester.setStudiesPlan(null));
+                semesterRepository.saveAll(studiesPlan.getSemesters());
+                if(!CollectionUtils.isEmpty(studiesPlanDto.getSemesters())) {
+                    List<Long> semesterIds = studiesPlanDto.getSemesters().stream().map(SemesterDto::getId).collect(Collectors.toList());
+                    List<Semester> semesters = semesterRepository.findAllById(semesterIds);
+                    studiesPlan.setSemesters(semesters);
+                }
+                else {
+                    studiesPlan.setSemesters(Collections.emptyList());
+                }
+
+                StudiesPlan savedStudiesPlan = studiesPlanRepository.save(studiesPlan);
+                if(!CollectionUtils.isEmpty(savedStudiesPlan.getSemesters())) {
+                    savedStudiesPlan.getSemesters().forEach(semester -> semester.setStudiesPlan(savedStudiesPlan));
+                    semesterRepository.saveAll(savedStudiesPlan.getSemesters());
+                }
+                return studiesPlanMapper.toDto(savedStudiesPlan);
+            }
+        }
+        return null;
     }
 }

@@ -50,7 +50,6 @@ export class CreateStudiesProgramComponent implements OnInit {
 
   selectModule(event: any) {
     let moduleId = event.target.value;
-    console.log(moduleId);
     let modulesToIterate = this.modules;
     for(let module of modulesToIterate) {
       if(module.id == moduleId) {
@@ -61,7 +60,6 @@ export class CreateStudiesProgramComponent implements OnInit {
 
   selectEducationProgram(event: any) {
     let educationProgramId = event.target.value;
-    console.log(educationProgramId);
     let educationProgramsToIterate = this.educationPrograms;
     for(let educationProgram of educationProgramsToIterate) {
       if(educationProgram.id == educationProgramId) {

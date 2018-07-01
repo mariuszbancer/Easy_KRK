@@ -19,4 +19,17 @@ public class StudiesProgramController {
         log.debug("Create studies program {}", studiesProgramDto);
         return studiesProgramService.create(studiesProgramDto);
     }
+
+    @GetMapping("studiesPrograms/{id}")
+    @ResponseBody
+    public StudiesProgramDto getById(@PathVariable("id") Long id) {
+        log.debug("Get studies program by id");
+        return studiesProgramService.getById(id);
+    }
+
+    @PutMapping("studiesPrograms")
+    @ResponseBody
+    public StudiesProgramDto update(@RequestBody StudiesProgramDto studiesProgramDto) {
+        return studiesProgramService.update(studiesProgramDto);
+    }
 }

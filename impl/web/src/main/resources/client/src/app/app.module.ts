@@ -34,6 +34,7 @@ import {UnauthorizedInterceptor} from "./interceptors/UnauthorizedInterceptor";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     AppRoutingModule,
     LoginModule,
     RegisterModule,

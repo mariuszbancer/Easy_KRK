@@ -15,6 +15,8 @@ import {CreateSemesterComponent} from "./components/semesters/create-semester.co
 import {CreateCourseComponent} from "./components/courses/create-course.component";
 import {CreateStudiesPlanComponent} from "./components/studiesPlans/create-studies-plan.component";
 import {CreateStudiesProgramComponent} from "./components/studiesPrograms/create-studies-program.component";
+import {UpdateStudiesProgramComponent} from "./components/studiesPrograms/update-studies-program.component";
+import {UpdateStudiesPlanComponent} from "./components/studiesPlans/update-studies-plan-component";
 
 @NgModule({
   imports: [
@@ -81,8 +83,18 @@ export const routes: Routes = [
     canActivate: [PrivatePageGuard]
   },
   {
+    path: "updateStudiesPlan/:id",
+    component: UpdateStudiesPlanComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
     path: "createStudiesProgram",
     component: CreateStudiesProgramComponent,
+    canActivate: [PrivatePageGuard]
+  },
+  {
+    path: "updateStudiesProgram/:id",
+    component: UpdateStudiesProgramComponent,
     canActivate: [PrivatePageGuard]
   },
   {

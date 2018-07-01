@@ -11,7 +11,15 @@ export class StudiesProgramService {
     return this.http.get("/api/studiesPrograms", {});
   }
 
-  create(studiesProfile: any) {
-    return this.http.post("/api/studiesPrograms", studiesProfile, {});
+  create(studiesProgram: any) {
+    return this.http.post("/api/studiesPrograms", studiesProgram, {});
+  }
+
+  update(studiesProgram: any) {
+    return this.http.put("/api/studiesPrograms", studiesProgram, {});
+  }
+
+  getById(id: any) {
+    return this.http.get("/api/studiesPrograms/" + id, {});
   }
 }

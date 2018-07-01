@@ -12,12 +12,16 @@ import {CreateSemesterComponent} from "./semesters/create-semester.component";
 import {CreateCourseComponent} from "./courses/create-course.component";
 import {CreateStudiesPlanComponent} from "./studiesPlans/create-studies-plan.component";
 import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-program.component";
+import {RouterModule} from "@angular/router";
+import {UpdateStudiesPlanComponent} from "./studiesPlans/update-studies-plan-component";
+import {UpdateStudiesProgramComponent} from "./studiesPrograms/update-studies-program.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     HomeComponent,
@@ -30,7 +34,9 @@ import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-pr
     CreateSemesterComponent,
     CreateCourseComponent,
     CreateStudiesPlanComponent,
-    CreateStudiesProgramComponent
+    UpdateStudiesPlanComponent,
+    CreateStudiesProgramComponent,
+    UpdateStudiesProgramComponent
   ],
   exports: [
     HomeComponent,
@@ -43,7 +49,9 @@ import {CreateStudiesProgramComponent} from "./studiesPrograms/create-studies-pr
     CreateSemesterComponent,
     CreateCourseComponent,
     CreateStudiesPlanComponent,
-    CreateStudiesProgramComponent
+    UpdateStudiesPlanComponent,
+    CreateStudiesProgramComponent,
+    UpdateStudiesProgramComponent
   ]
 })
 export class ComponentsModule {

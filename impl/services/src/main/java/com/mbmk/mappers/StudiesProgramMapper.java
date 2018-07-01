@@ -16,12 +16,13 @@ public class StudiesProgramMapper {
 
     private final ModuleMapper moduleMapper;
 
-    public StudiesProgramDto toDto(StudiesProgram savedStudiesProgram) {
+    public StudiesProgramDto toDto(StudiesProgram studiesProgram) {
         return StudiesProgramDto.builder()
-                .createdAt(savedStudiesProgram.getAdoptionDate())
-                .startsAt(savedStudiesProgram.getStartsAt())
-                .description(savedStudiesProgram.getDescription())
-                .modules(!CollectionUtils.isEmpty(savedStudiesProgram.getModules()) ? moduleMapper.toDtos(savedStudiesProgram.getModules()) : Collections.emptyList())
+                .id(studiesProgram.getId())
+                .createdAt(studiesProgram.getAdoptionDate())
+                .startsAt(studiesProgram.getStartsAt())
+                .description(studiesProgram.getDescription())
+                .modules(!CollectionUtils.isEmpty(studiesProgram.getModules()) ? moduleMapper.toDtos(studiesProgram.getModules()) : Collections.emptyList())
                 .build();
     }
 
