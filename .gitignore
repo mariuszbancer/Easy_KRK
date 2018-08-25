@@ -1,0 +1,150 @@
+#---------------------------------------#
+# Project Ignores                       #
+#---------------------------------------#
+
+# Maven
+impl/target/
+impl/pom.xml.tag
+impl/pom.xml.releaseBackup
+impl/pom.xml.versionsBackup
+impl/pom.xml.next
+impl/release.properties
+impl/dependency-reduced-pom.xml
+impl/buildNumber.properties
+impl/.mvn/timing.properties
+
+impl/app/target/
+impl/app/pom.xml.tag
+impl/app/pom.xml.releaseBackup
+impl/app/pom.xml.versionsBackup
+impl/app/pom.xml.next
+impl/app/release.properties
+impl/app/dependency-reduced-pom.xml
+impl/app/buildNumber.properties
+impl/app/.mvn/timing.properties
+
+impl/model/target/
+impl/model/pom.xml.tag
+impl/model/pom.xml.releaseBackup
+impl/model/pom.xml.versionsBackup
+impl/model/pom.xml.next
+impl/model/release.properties
+impl/model/dependency-reduced-pom.xml
+impl/model/buildNumber.properties
+impl/model/.mvn/timing.properties
+
+impl/services/target/
+impl/services/pom.xml.tag
+impl/services/pom.xml.releaseBackup
+impl/services/pom.xml.versionsBackup
+impl/services/pom.xml.next
+impl/services/release.properties
+impl/services/dependency-reduced-pom.xml
+impl/services/buildNumber.properties
+impl/services/.mvn/timing.properties
+
+impl/web/target/
+impl/web/pom.xml.tag
+impl/web/pom.xml.releaseBackup
+impl/web/pom.xml.versionsBackup
+impl/web/pom.xml.next
+impl/web/release.properties
+impl/web/dependency-reduced-pom.xml
+impl/web/buildNumber.properties
+impl/web/.mvn/timing.properties
+
+!impl/.mvn/wrapper/maven-wrapper.jar
+
+# Compiled class file
+*.class
+
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+impl/hs_err_pid*
+
+# misc
+*.log
+impl/log/
+impl/logs/
+
+impl/app/log/
+impl/app/logs/
+
+impl/model/log/
+impl/model/logs/
+
+impl/services/log/
+impl/services/logs/
+
+implweb/log/
+implweb/logs/
+
+#---------------------------------------#
+# IDEs & Editors Ignores                #
+#---------------------------------------#
+
+# JetBrains IDEs
+impl/.idea/
+*.iml
+
+# Eclipse
+impl/.project
+impl/.classpath
+impl/.settings
+
+#---------------------------------------#
+# General Ignores                       #
+#---------------------------------------#
+
+*~
+*.orig
+impl/.vagrant
+
+
+#---------------------------------------#
+# Linux Ignores                         #
+#---------------------------------------#
+
+# KDE directory preferences
+.directory
+impl/.directory
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+#---------------------------------------#
+# Windows Ignores                       #
+#---------------------------------------#
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Node modules
+**/node_modules

@@ -1,0 +1,67 @@
+<div style="margin-left: 10px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="description">Opis</label>
+        <textarea class="form-control" rows="10" id="description" [(ngModel)]="studiesProgram.description"></textarea>
+      </div>
+    </div>
+      <div class="col-md-2">
+        <div>
+          <label for="createdDate">Uchwalony</label>
+        </div>
+        <input id="createdDate" type="date" name="Data uchwalenia" [(ngModel)]="studiesProgram.createdAt">
+      </div>
+      <div class="col-md-2">
+        <div>
+          <label for="startDate">Obowiązuje od</label>
+        </div>
+        <input id="startDate" type="date" name="Obowiązuje od" [(ngModel)]="studiesProgram.startsAt">
+      </div>
+    <div class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <label for="courseFormSelect">Moduły</label>
+        <select id="courseFormSelect" class="form-control" data-live-search="true"
+                (change)="selectModule($event)">
+          <option value=""></option>
+          <option *ngFor="let module of modules" [value]="module.id">
+            {{module.name}}
+          </option>
+        </select>
+        <div class="col-md-2">
+          <button class="btn btn-success" (click)="addModule()">Dodaj modul</button>
+        </div>
+        <label for="educationProgramSelect">Program kształcenia</label>
+        <select id="educationProgramSelect" class="form-control" data-live-search="true"
+                (change)="selectEducationProgram($event)">
+          <option value=""></option>
+          <option *ngFor="let educationProgram of educationPrograms" [value]="educationProgram.id">
+            {{educationProgram.fieldOfStudyName}} - {{educationProgram.levelOfEducation}} - {{educationProgram.courseForm}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+      <th>Moduł</th>
+      <th>Kursy</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let module of studiesProgram.modules">
+        <td>{{module.name}}</td>
+        <td>{{module.coursesString}}</td>
+        <td>
+          <!--<button style="margin-left: 5px" class="btn btn-primary" (click)="editCourse(course.id)">Edycja</button>-->
+          <button style="margin-left: 5px" class="btn btn-warning" (click)="deleteModule(module.id)">Usuń</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-success" (click)="save()">Zapisz</button>
+  </div>
+</div>

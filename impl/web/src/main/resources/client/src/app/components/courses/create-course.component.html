@@ -1,0 +1,107 @@
+<div style="margin-left: 30px">
+  <div class="row">
+    <h3>Definicja kursu</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div>
+        <div>
+          <label for="ectsPoints">Punkty ECTS</label>
+        </div>
+        <input class="form-control" id="ectsPoints" type="number" [(ngModel)]="course.ectsPoints">
+      </div>
+      <div>
+        <div>
+          <label for="code">Kod</label>
+        </div>
+        <input id="code" class="form-control" type="string" [(ngModel)]="course.code">
+      </div>
+      <div>
+        <div>
+          <label for="zzuHours">Godziny ZZU</label>
+        </div>
+        <input id="zzuHours" class="form-control" type="number" [(ngModel)]="course.zzuHours">
+      </div>
+      <div>
+        <div>
+          <label for="cnpsHours">Godziny CNPS</label>
+        </div>
+        <input id="cnpsHours" class="form-control" type="number" [(ngModel)]="course.cnpsHours">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div>
+        <div>
+          <label for="courseFormSelect">Forma kursu</label>
+        </div>
+        <select id="courseFormSelect" class="form-control" data-live-search="true" [(ngModel)]="course.courseForm">
+          <option *ngFor="let courseForm of courseForms" [value]="courseForm">
+            {{courseForm}}
+          </option>
+        </select>
+      </div>
+      <div>
+        <div>
+          <label for="passingMethodSelect">Forma zaliczenia</label>
+        </div>
+        <select id="passingMethodSelect" class="form-control" data-live-search="true" [(ngModel)]="course.passingMethod">
+          <option *ngFor="let passingMethod of passingMethods" [value]="passingMethod">
+            {{passingMethod}}
+          </option>
+        </select>
+      </div>
+      <div>
+        <div>
+          <label for="studiesProfileSelect">Profil kursu</label>
+        </div>
+        <select id="studiesProfileSelect" class="form-control" data-live-search="true" [(ngModel)]="course.studiesProfile">
+          <option *ngFor="let studiesProfile of studiesProfiles" [value]="studiesProfile">
+            {{studiesProfile}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="col-md-4">
+        <div>
+          <div>
+            <label for="courseKindSelect">Rodzaj kursu</label>
+          </div>
+          <select id="courseKindSelect" class="form-control" data-live-search="true" [(ngModel)]="course.courseKind">
+            <option *ngFor="let courseKind of courseKinds" [value]="courseKind">
+              {{courseKind}}
+            </option>
+          </select>
+        </div>
+        <div>
+          <div>
+            <label for="courseTypeSelect">Typ kursu</label>
+          </div>
+          <select id="courseTypeSelect" class="form-control" data-live-search="true" [(ngModel)]="course.courseType">
+            <option *ngFor="let courseType of courseTypes" [value]="courseType">
+              {{courseType}}
+            </option>
+          </select>
+        </div>
+        <div>
+          <div>
+            <label for="courseGuardianSelect">Opiekun kursu</label>
+          </div>
+          <select id="courseGuardianSelect" class="form-control" data-live-search="true" (change) = "selectGuardian($event)">
+            <option *ngFor="let user of users" [value]="user.id">
+              {{user.username}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-5">
+      <button class="btn btn-success" (click)="createCourse()">Zapisz</button>
+    </div>
+  </div>
+</div>

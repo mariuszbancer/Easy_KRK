@@ -1,0 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+:host /deep/ body {
+  font-style: italic;
+}

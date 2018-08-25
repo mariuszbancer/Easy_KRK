@@ -1,0 +1,71 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">Uczelnia</a>
+  <div class="navbar-expand mr-auto">
+    <ul class="nav navbar-nav">
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['changesSuggestions']">Lista sugestii zmian
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createChangeSuggestion']">Nowa sugestia zmian
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['educationPrograms']">Programy kształcenia
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createEducationProgram']">Nowy program kształcenia
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createModule']">Definicja modułu
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createSemester']">Definicja semestru
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createCourse']">Definicja kursu
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createStudiesPlan']">Definicja planu studiów
+        </a>
+      </li>
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           [routerLink]="['createStudiesProgram']">Definicja programu studiów
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <li class="nav-item"
+          [routerLinkActive]="['active']">
+        <a class="nav-link"
+           (click)="logout()">Wyloguj
+        </a>
+      </li>
+    </div>
+  </div>
+</nav>

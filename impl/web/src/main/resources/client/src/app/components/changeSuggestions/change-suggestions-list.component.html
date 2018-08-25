@@ -1,0 +1,82 @@
+<div style="margin-left: 10px">
+  <div class="row">
+    <div class="col-md-4">
+      <div>
+        <label for="departmentSelect">Wydział</label>
+      </div>
+      <select id="departmentSelect" class="form-control" data-live-search="true" [(ngModel)]="selectedDepartment"
+              (ngModelChange)="selectDepartment($event)">
+        <option [value]=-1></option>
+        <option *ngFor="let department of departments" [value]="department.id">
+          {{department.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <div>
+        <label for="fieldOfStudySelect">Kurs</label>
+      </div>
+      <select id="fieldOfStudySelect" class="form-control" data-live-search="true" [(ngModel)]="selectedFieldOfStudy">
+        <option [value]=-1></option>
+        <option *ngFor="let fieldOfStudy of fieldOfStudies" [value]="fieldOfStudy.name">
+          {{fieldOfStudy.name}}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <div>
+        <label for="affectsSelect">Dotyczy</label>
+      </div>
+      <select id="affectsSelect" class="form-control" [(ngModel)]="selectedChangeSuggestionType">
+        <option value=""></option>
+        <option value="Plan studiów">Plan studiów</option>
+        <option value="Program studiów">Program studiów</option>
+        <option value="Efekt kształcenia">Efekt kształcenia</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table" style="margin-left: 20px">
+      <thead>
+      <tr>
+        <!--<th scope="col">Id sugestii</th>-->
+        <th scope="col">Osoba proponująca</th>
+        <th scope="col">Wydział</th>
+        <th scope="col">Kierunek</th>
+        <th scope="col">Dotyczy</th>
+        <th scope="col">Data</th>
+        <th scope="col">Akcje</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let suggestion of changeSuggestions" [hidden]="!applyFilter(suggestion)">
+        <!--<th scope="row">{{suggestion.id}}</th>-->
+        <td>{{suggestion.createdByUsername}}</td>
+        <td>{{suggestion.departmentName}}</td>
+        <td>{{suggestion.fieldOfStudyName}}</td>
+        <td>{{suggestion.changeSuggestionType}}</td>
+        <td>{{suggestion.notifiedAt}}</td>
+        <td>
+          <button style="margin-left: 5px" class="btn btn-primary" (click)="updateSuggestion(suggestion.id)">Edycja
+          </button>
+          <button style="margin-left: 5px" class="btn btn-warning" (click)="deleteSuggestion(suggestion.id)">Usuń
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row">
+    <div class="offset-8"></div>
+    <div class="col-md-2">
+      <button class="btn btn-success" (click)="createSuggestion()">Zaproponuj sugestię</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary">Anuluj</button>
+    </div>
+  </div>
+</div>
